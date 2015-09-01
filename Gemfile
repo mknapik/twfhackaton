@@ -22,6 +22,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 group :development, :test do
   gem 'rspec-rails', '~> 3.0'
   gem 'sqlite3'
+
+  gem 'factory_girl_rails', '~> 4.0'
 end
 
 group :development do
@@ -29,6 +31,7 @@ group :development do
   gem 'guard-rspec'
   gem 'guard-spring'
   gem 'guard-livereload'
+  gem 'rubocop-rspec'
 
   gem 'thin'
   gem 'better_errors'
