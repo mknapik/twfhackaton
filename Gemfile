@@ -42,3 +42,8 @@ group :development do
   gem 'spring'
   gem 'spring-commands-rspec'
 end
+
+group :test do
+  gem 'simplecov', require: false
+  gem 'codeclimate-test-reporter', require: false
+end
