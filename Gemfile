@@ -12,6 +12,8 @@ gem 'twitter-bootstrap-rails'
 gem 'angularjs-rails'
 gem 'angularjs-rails-resource', '~> 2.0.0'
 gem 'jquery-rails'
+gem 'execjs'
+gem 'therubyracer', platforms: :ruby
 gem 'libv8'
 
 gem 'active_model_serializers'
