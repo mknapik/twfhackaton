@@ -7,17 +7,16 @@ gem 'uglifier', '>= 1.3.0'
 
 gem 'coffee-rails', '~> 4.1.0'
 gem 'haml-rails'
-# gem 'angular'
+gem 'less-rails'
+gem 'twitter-bootstrap-rails'
+gem 'angularjs-rails'
+gem 'angularjs-rails-resource', '~> 2.0.0'
+gem 'jquery-rails'
+gem 'libv8'
 
-# gem 'jquery-rails'
 gem 'active_model_serializers'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
-
-# gem 'unicorn'
-
-# Use Capistrano for deployment
-# gem 'capistrano-rails', group: :development
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.0'
@@ -36,7 +35,6 @@ group :development do
   gem 'thin'
   gem 'better_errors'
   gem 'binding_of_caller'
-  # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
 
   gem 'spring'
