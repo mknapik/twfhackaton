@@ -2,4 +2,4 @@
 [![Code Climate](https://codeclimate.com/github/mknapik/twfhackaton/badges/gpa.svg)](https://codeclimate.com/github/mknapik/twfhackaton)
 [![Test Coverage](https://codeclimate.com/github/mknapik/twfhackaton/badges/coverage.svg)](https://codeclimate.com/github/mknapik/twfhackaton/coverage)
 [![Dependency Status](https://gemnasium.com/mknapik/twfhackaton.svg)](https://gemnasium.com/mknapik/twfhackaton)
-[![Heroku](https://heroku-badge.herokuapp.com/?app=code-divers)]
+[![Heroku](https://heroku-badge.herokuapp.com/?app=code-divers)](https://code-divers.herokuapp.com)
