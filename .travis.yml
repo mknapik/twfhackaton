@@ -1,6 +1,11 @@
 env:
-  - COVERAGE=1
+- COVERAGE=1
 language: ruby
 rvm:
- - 2.2.3
+- 2.2.3
 script: bundle exec rake
+deploy:
+  provider: heroku
+  app: code-divers
+  api_key:
+    secure: hTYvcKyA56e/UH5Wu5WzASPXiozfJ9BdDRVzV2TiuZjmhg6iMkupE6nazO4wlIJvKdIiC1PKIUOin5bcylQFGqd3qtqOdIwZeS0RLBi2oRqhyqOIpyrCyxdL+0XcaqqFL9o2b6hNyN3VhsjPPUKrkpC5U86isxV/FWKCDhDYCANM0r9Q18tzmNTDxbsKLSqSufwB0tqkOIanmZRPC4kOnK++7SDIHlmt4as2OpSqjxytobJgE4P2auYuVJmnML/OJABxvxC7pzI0e3mdQ5ABv731msfXlx91WrQd3UdD+yCBDR5eSsouWcG6+0/qJZ3apawEkzpNxH9gcTBb5EMH9IfZlsJ2w0ykL0Aq9sVJlbm5guplfcmiXCt2dyRnm71ExJgpHUH97kSENjIn858XbKGswKKoCwzh/TEBKH8y3jaPfZhPFSGO1MHSuFHNH2sAqUr3jcSTT5O36W9CuTjio4TpK5M6AEb9eQQgnUjEZyBiL9Wj+T6d4vKPa2NsjPAwWUs8n1BBJSz5I4s0e0q+7TS/SdTTz77crHSGXmAV9QbXS9NTQTcppIbqe7iHBDdPwpSpwp3/JLtDWBj78TuCwcR48rKwRYPnrezsqSf+Yyg8426k3MF+frLVElnTLCihv8B1KKXQ0898LpsgxJJxYb1A/pK1+N9fXlnp5VXdaqA=
