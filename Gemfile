@@ -28,6 +28,7 @@ end
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.0'
+  gem 'jasmine-rails'
   gem 'sqlite3'
 
   gem 'factory_girl_rails', '~> 4.0'
@@ -38,6 +39,7 @@ group :development do
   gem 'guard-rspec'
   gem 'guard-spring'
   gem 'guard-livereload'
+  gem 'guard-jasmine'
   gem 'rubocop-rspec'
 
   gem 'thin'

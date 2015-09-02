@@ -1,9 +1,12 @@
 env:
 - COVERAGE=1
+- RAILS_ENV=test
 language: ruby
 rvm:
 - 2.2.3
-script: bundle exec rake
+script:
+- bundle exec rake
+- bundle exec rake spec:javascript
 deploy:
   provider: heroku
   app: code-divers

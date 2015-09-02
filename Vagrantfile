@@ -35,6 +35,7 @@ Vagrant.configure(2) do |config|
 
     apt-get install --yes ruby2.2 ruby2.2-dev ruby-switch
     apt-get install --yes nodejs npm
+    apt-get install --yes phantomjs
     apt-get install --yes git htop
 
     apt-get install --yes sqlite3 libsqlite3-dev libpq-dev
