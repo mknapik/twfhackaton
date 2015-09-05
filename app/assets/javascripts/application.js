@@ -22,3 +22,6 @@
 //= require 'greensock/easing/EasePack'
 //= require 'responsiveVoice'
 //= require 'tts'
+
+//= require Draggable
+//= require draggFunctions
