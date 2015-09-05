@@ -20,6 +20,7 @@ gem 'therubyracer', platforms: :ruby
 gem 'libv8'
 gem 'greensock-rails'
 gem 'owlcarousel-rails'
+gem 'paperclip'
 
 gem 'active_model_serializers'
 # bundle exec rake doc:rails generates the API under doc/api.
