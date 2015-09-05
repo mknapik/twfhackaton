@@ -1,8 +1,8 @@
 angular.module('twf')
   .factory('getGame', ['$http', function($http){
     return{
-      get: function(callback){
-        $http.get("/api/games/1").
+      get: function(callback, id){
+        $http.get("/api/games/" + id).
           success(function(data) {
             callback(data);
           }).

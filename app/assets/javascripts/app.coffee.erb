@@ -8,11 +8,8 @@ app.config(['$httpProvider', '$routeProvider', '$locationProvider',
         .when('/', {
                     templateUrl: '<%= asset_path('templates/game_list.html') %>',
                     controller: 'GameListCtrl'
-                }).when('/page1', {
+                }).when('/games/:id', {
                     templateUrl: '<%= asset_path('templates/page1.html') %>',
                     controller: 'Page1Ctrl'
-                }).when('/page2', {
-                    templateUrl: '<%= asset_path('templates/page2.html') %>',
-                    controller: 'Page2Ctrl'
                 })
 ])
