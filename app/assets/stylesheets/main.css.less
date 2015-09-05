@@ -126,6 +126,11 @@ header {
         margin: 20px;
         background: @placeholder-bg;
         .border-radius(30px);
+        border: 3px solid @placeholder-bg;
+        &.active{
+            background-color: @tile-bg;
+            border: 3px dashed @placeholder-bg;
+        }
     }
 }
 

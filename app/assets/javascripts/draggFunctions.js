@@ -13,6 +13,8 @@ var DraggModule = function () {
 
     var placecholdersReferences;
 
+    var rollback = false;
+
     var PlacecholderModel = [];
 
     var markActivePlacecholder = function (index) {
@@ -20,9 +22,9 @@ var DraggModule = function () {
         for (var i in placecholdersReferences) {
             if (placecholdersReferences.hasOwnProperty(i)) {
                 if (i === index) {
-                    placecholdersReferences[i].setAttribute("class", placecholdersReferences[i].getAttribute("class").replace("active", "") + " active");
+                    placecholdersReferences[i].setAttribute("class", placecholdersReferences[i].getAttribute("class").replace(" active", "") + " active");
                 } else {
-                    placecholdersReferences[i].setAttribute("class", placecholdersReferences[i].getAttribute("class").replace("active", ""));
+                    placecholdersReferences[i].setAttribute("class", placecholdersReferences[i].getAttribute("class").replace(" active", ""));
                 }
             }
         }
@@ -30,8 +32,8 @@ var DraggModule = function () {
 
     var getCurrenConfiguration = function () {
         var result = [];
-        for(var i in PlacecholderModel){
-            if(PlacecholderModel.hasOwnProperty(1) && PlacecholderModel[i].elementIside){
+        for (var i in PlacecholderModel) {
+            if (PlacecholderModel.hasOwnProperty(1) && PlacecholderModel[i].elementIside) {
                 result.push(PlacecholderModel[i].id);
             }
         }
@@ -70,8 +72,8 @@ var DraggModule = function () {
                         result = {
                             index: i,
                             distance: distance,
-                            x: placecholderCordinates.left - draggedElementStartPosition.x,
-                            y: placecholderCordinates.bottom - draggedElementStartPosition.y
+                            x: draggedElementStartPosition.x - placecholderCordinates.left,
+                            y: draggedElementStartPosition.y - placecholderCordinates.bottom
                         };
                     }
                 }
@@ -110,7 +112,6 @@ var DraggModule = function () {
             throwProps: true,
             autoScroll: true,
             liveSnap: true,
-
             onPress: function (b, a) {
                 draggedElementStartPosition = {
                     x: this.target.getBoundingClientRect().left,
@@ -119,6 +120,8 @@ var DraggModule = function () {
                 var isAdded = elenemtIsOnPlaceholder(this.target, true);
                 if (isAdded) {
                     PlacecholderModel[isAdded.index].elementIside = false;
+                    setTimeout(function(){markActivePlacecholder(false);},300);
+                    rollback = true;
                     delete PlacecholderModel[isAdded.index].id;
 
                 }
@@ -126,24 +129,31 @@ var DraggModule = function () {
             onDragEnd: function (a, b) {
 
                 var currentPlacecholder = elenemtIsOnPlaceholder(this.target);
-                if (currentPlacecholder) {
+                if (currentPlacecholder && !rollback) {
                     PlacecholderModel[currentPlacecholder.index].elementIside = true;
                     PlacecholderModel[currentPlacecholder.index].id = this.target.getAttribute("data-id");
+                    TweenLite.to(this.target, 0.5, {
+                        x: -currentPlacecholder.x,
+                        y: -currentPlacecholder.y,
+                        delay: 0.1
+                    });
+
                 } else {
                     TweenLite.to(this.target, 0.5, {
-                        x: 1,
-                        y: 1,
+                        x: 0,
+                        y: 0,
                         delay: 0.1
                     });
                 }
+                rollback = false;
             },
             snap: {
                 x: function (endValue) {
                     elenemtIsOnPlaceholder(this.target);
-                    return elenemtIsOnPlaceholder(this.target) ? elenemtIsOnPlaceholder(this.target).x : endValue; //Math.round(endValue / 100) * 100;
+                    return endValue; //Math.round(endValue / 100) * 100;
                 },
                 y: function (endValue) {
-                    return elenemtIsOnPlaceholder(this.target) ? elenemtIsOnPlaceholder(this.target).y : endValue;
+                    return endValue;
                 }
             }
         });
