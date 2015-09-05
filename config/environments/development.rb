@@ -43,4 +43,15 @@ Rails.application.configure do
   config.web_console.whitelisted_ips = '10.0.2.2'
 
   BetterErrors::Middleware.allow_ip! '10.0.2.2' if defined?(BetterErrors) && Rails.env.development?
+
+  # s3 paperclip configuration
+  config.paperclip_defaults = {
+      :storage => :s3,
+      :s3_credentials => {
+          :bucket => ENV['S3_BUCKET_NAME'],
+          :access_key_id => ENV['AWS_ACCESS_KEY_ID'],
+          :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']
+      }
+  }
+
 end

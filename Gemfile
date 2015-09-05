@@ -21,6 +21,7 @@ gem 'libv8'
 gem 'greensock-rails'
 gem 'owlcarousel-rails'
 gem 'paperclip'
+gem 'aws-sdk', '< 2.0'
 
 gem 'active_model_serializers'
 # bundle exec rake doc:rails generates the API under doc/api.

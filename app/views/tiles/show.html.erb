@@ -1,0 +1,8 @@
+<h1>All images</h1>
+<table>
+<tr>
+<% Tile.find_each do |tile| %>
+      <td><%= image_tag tile.image.url(:thumb) %></td>
+<% end %>
+</tr>
+</table>

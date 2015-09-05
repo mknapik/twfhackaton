@@ -1,0 +1,13 @@
+<%= form_for(@tile, :url => { :action => :create }, multipart: true) do |t| %>
+<div class="field">
+    <%= t.label :name %>
+    <%= t.text_field :name %>
+</div>
+<div class="field">
+    <%= t.label :image %>
+    <%= t.file_field :image %>
+</div>
+<div class="actions">
+    <%= t.submit 'Add new tile' %>
+</div>
+<% end %>
