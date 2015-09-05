@@ -1,13 +1,15 @@
 var app = angular.module('twf');
 
-app.directive('owlCarousel', function () {
+app.directive('owlCarousel', ['$timeout', function ($timeout) {
     return {
         link: function link(scope, element, attrs) {
-            $(element).owlCarousel({
-                autoPlay: parseInt(attrs.autoplay) || 0,
-                responsive: true,
-                navigation: true
-            })
+            $timeout(function () {
+                $(element).owlCarousel({
+                    autoPlay: parseInt(attrs.autoplay) || 10000,
+                    responsive: true,
+                    navigation: true
+                });
+            });
         }
     };
-});
+}]);

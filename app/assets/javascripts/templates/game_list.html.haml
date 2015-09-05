@@ -1,4 +1,4 @@
-.container.game-list.owl-carousel.owl-theme
+.container.game-list.owl-carousel.owl-theme(owl-carousel)
   .page.item(ng-repeat="page in pages")
     .row(ng-repeat="row in page")
       %div(ng-repeat="game in row" class="col-sm-{{ gameItemSize }} col-sm-offset-1")
