@@ -7,3 +7,8 @@
 
 //= require app
 //= require_tree ./controllers
+//= require owl.carousel
+
+//= require 'greensock/TweenLite'
+//= require 'greensock/TweenMax'
+//= require 'greensock/easing/EasePack'
