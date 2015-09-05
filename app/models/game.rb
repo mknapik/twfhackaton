@@ -9,7 +9,7 @@ class Game < ActiveRecord::Base
   RATINGS = (1..5)
 
   def no_solutions
-    solutions.pluck(:set).count
+    solutions.pluck(:set).uniq.count
   end
 
   def solution_sets
