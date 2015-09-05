@@ -6,4 +6,9 @@ Rails.application.routes.draw do
   get '/tile/new' => 'tiles#new'
   post '/tile/create' => 'tiles#create'
 
+  scope :api do
+    resources :games, only: [:index, :show] do
+      get :preview
+    end
+  end
 end
