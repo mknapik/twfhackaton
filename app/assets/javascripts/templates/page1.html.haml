@@ -1,5 +1,5 @@
 %div.popup-wrapper
-  %div(ng-include src="'/assets/templates/popup.html.haml'")
+  %div(ng-include src="'#{asset_path('templates/popup.html')}'")
 %header
   %a.open-popup(ng-click="openPopup()")
     %i.fa.fa-bars
