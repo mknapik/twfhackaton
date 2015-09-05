@@ -5,6 +5,10 @@ class Game < ActiveRecord::Base
 
   validates :name, :game_type, presence: true
 
+  def no_solutions
+    solutions.pluck(:set).count
+  end
+
   def solution_sets
     solutions.includes(:tile).group_by(&:set).map do |set, solutions|
       solutions.map(&:tile)
