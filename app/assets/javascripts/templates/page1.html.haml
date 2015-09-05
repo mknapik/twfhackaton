@@ -1,2 +1,15 @@
-%h1
-  {{ title }}
+%div.popup-wrapper(ng-class="{'visible': popupIsVisible}")
+  %div(ng-include src="'/assets/templates/popup.html.haml'")
+%header
+  %a.open-popup(ng-click="openPopup()")
+    %i.fa.fa-bars
+  %ul
+    %li
+      %a
+        1
+    %li
+      %a
+        2
+    %li
+      %a
+        3

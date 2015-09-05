@@ -14,8 +14,31 @@ html,body {
 }
 
 .main-container {
-    width: 100%;
+    .size(100%,100%);
     padding: 0;
+    >div {
+        height: 100%;
+    }
+    .row {
+        height: 100%;
+        >div {
+            height: 100%;
+        }
+    }
+    .container-fluid {
+        padding: 0;
+        position: relative;
+        height: 100%;
+        .popup-wrapper {
+            height: 0;
+            &.visible {
+                height: 100%;
+            }
+            div {
+                height: 100%;
+            }
+        }
+    }
 }
 
 header {
@@ -27,7 +50,7 @@ header {
         .size(70px,70px);
         .border-radius(50%);
         background: @pink;
-        margin: 20px;
+        margin: 25px;
         i{
             font-size: 24px;
             color: @white;
@@ -56,6 +79,11 @@ header {
             color: @white;
             .border-radius(150px);
             padding: 5px 0;
+            &:hover {
+                color: @white;
+                cursor: pointer;
+                background: @active-btn;
+            }
             &.active {
                 background: @active-btn;
             }
