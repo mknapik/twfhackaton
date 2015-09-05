@@ -23,3 +23,6 @@
 
 %a.finish-game(ng-click="finishGame()")
   %i.fa.fa-check
+  
+%div.popup-ratings
+  %div(ng-include src="'#{asset_path('templates/rating.html')}'")

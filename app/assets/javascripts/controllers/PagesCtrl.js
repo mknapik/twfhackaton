@@ -2,7 +2,7 @@ var Page1Ctrl, app;
 
 app = angular.module('twf');
 
-Page1Ctrl = function($scope, $timeout, getGame, $routeParams) {
+Page1Ctrl = function($scope,$timeout, getGame, postGame, $routeParams) {
   $scope.title = "Hello, page1!";
   $scope.currentCategory = 0;
 
@@ -31,8 +31,15 @@ Page1Ctrl = function($scope, $timeout, getGame, $routeParams) {
   $scope.playSound = function($event) {
       $(".task-text").speak();
   }
+  $scope.finishGame = function($event) {
+      postGame.post(function(data){
+        console.log(data);
+          TweenMax.to($(".rating-popup"), 1, {  opacity: 1, ease:Linear.easeNone});
+          TweenMax.to($(".rating-popup"), 1, {  css:{zIndex:1000}, ease:Linear.easeNone,}); 
+      });
+  }
 };
 
 
-app.controller('Page1Ctrl', ['$scope', '$timeout', 'getGame', '$routeParams', Page1Ctrl]);
+app.controller('Page1Ctrl', ['$scope', '$timeout', 'getGame', 'postGame', '$routeParams', Page1Ctrl]);
 
