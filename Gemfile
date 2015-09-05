@@ -14,6 +14,7 @@ gem 'twitter-bootstrap-rails'
 gem 'angularjs-rails'
 gem 'angular-rails-templates'
 gem 'angularjs-rails-resource', '~> 2.0.0'
+gem 'angular-ui-bootstrap-rails'
 gem 'jquery-rails'
 gem 'execjs'
 gem 'therubyracer', platforms: :ruby

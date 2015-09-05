@@ -1,0 +1,39 @@
+app = angular.module('twf')
+
+app.controller('GameListCtrl', ['$scope', '$modal', 'GameListSettings',
+  ($scope, $modal, GameListSettings) ->
+    $scope.init = ->
+      $scope.rows = []
+
+      # FIXME: temporary. Use $resource
+      games = [
+        {id: 1, title: "Gra #1", image: "http://lorempixel.com/200/200/animals/1", description: "Blah"},
+        {id: 2, title: "Gra #3", image: "http://lorempixel.com/200/200/animals/2", description: "Blah-blah"},
+        {id: 3, title: "Gra #2", image: "http://lorempixel.com/200/200/animals/3", description: "Blah-blah-blah"},
+        {id: 4, title: "Gra #4", image: "http://lorempixel.com/200/200/animals/4", description: "Blah-blah-blah"},
+        {id: 5, title: "Gra #5", image: "http://lorempixel.com/200/200/animals/5", description: "Blah-blah-blah"},
+        {id: 6, title: "Gra #6", image: "http://lorempixel.com/200/200/animals/6", description: "Blah-blah-blah"},
+        {id: 7, title: "Gra #7", image: "http://lorempixel.com/200/200/animals/7", description: "Blah-blah-blah"},
+        {id: 8, title: "Gra #8", image: "http://lorempixel.com/200/200/animals/8", description: "Blah-blah-blah"},
+        {id: 9, title: "Gra #9", image: "http://lorempixel.com/200/200/animals/9", description: "Blah-blah-blah"}
+      ]
+
+      while (games.length > 0)
+        $scope.rows.push(games.splice(0, GameListSettings.GAMES_PER_ROW));
+
+      $scope.gameItemSize = (12 / GameListSettings.GAMES_PER_ROW)
+
+    $scope.showGameDetails = (game) ->
+      $scope.selectedGame = game
+
+      $modal.open({
+        animation: false,
+        templateUrl: '<%= asset_path('templates/game_description_modal.html') %>',
+        controller: 'GameDetailsModalCtrl',
+        size: 'md',
+        scope: $scope
+      })
+
+    $scope.init()
+])
+

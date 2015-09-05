@@ -6,6 +6,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require twitter/bootstrap
+//= require angular-ui-bootstrap-tpls
 
 //= require app
 //= require_tree ./controllers
