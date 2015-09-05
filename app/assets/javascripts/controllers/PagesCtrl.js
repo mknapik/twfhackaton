@@ -4,12 +4,12 @@ app = angular.module('twf');
 
 Page1Ctrl = function($scope,getGame) {
   $scope.title = "Hello, page1!";
-    
+  $scope.currentCategory = 0;
   getGame.get(function(data){
       $scope.description = data.description;
-      console.log(data.tile_sets);
+      console.log(data);
       $scope.categories = data.tile_sets;
-      $scope.tiles = data.tile_sets[0].tiles;
+      $scope.tiles = data.tile_sets[$scope.currentCategory].tiles;
      
   });
   $scope.openPopup = function($event) {

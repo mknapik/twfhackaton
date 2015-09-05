@@ -67,7 +67,13 @@ header {
        li {
             display: inline-block;
             padding: 5px 10px;
-            margin: 30px 20px;
+            margin: 30px 5px;
+           &.active {
+               a{
+                   background: @active-btn;
+               }
+                
+            }
        }
         a {
             font-family: 'GothamRnd-Bold';
@@ -106,4 +112,16 @@ header {
         }
         
     }  
+}
+
+.placeholders {
+    background: @placeholders-bg;
+    .size(100%,200px);
+    .placeholder {
+        .size(160px,160px);
+        display: inline-block;
+        margin: 20px;
+        background: @placeholder-bg;
+        .border-radius(30px);
+    }
 }

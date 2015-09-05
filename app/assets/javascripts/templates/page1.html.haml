@@ -4,15 +4,17 @@
   %a.open-popup(ng-click="openPopup()")
     %i.fa.fa-bars
   %ul
-    %li(ng-repeat="category in categories")
+    %li(ng-repeat="category in categories" ng-class="{active: currentCategory ==  $index}")
       %a
         {{category.name}}
         
 %article.tile-items
-  %section.tile-item(ng-repeat="tile in tiles")
+  %section.tile-item(ng-repeat="tile in tiles" )
     %img(src="{{tile.image_uri}}")
     
 %article.placeholders
+  %section.placeholder
+  %section.placeholder
   %section.placeholder
   %section.placeholder
   %section.placeholder
