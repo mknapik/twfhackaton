@@ -1,17 +1,10 @@
 %div.rating-popup
   %a.close-popup(ng-click="closePopupRating()")
     %i.fa.fa-times
-  %section.rating
-    %p.star(ng-class="rating >=  1 ? 'active' : ''")
+  %section.rating.text-center
+    %p.star.active(ng-repeat="r in ratingStars")
       %i.fa.fa-star
-    %p.star(ng-class="rating >=  2 ? 'active' : ''")
-      %i.fa.fa-star
-    %p.star(ng-class="rating >=  3 ? 'active' : ''")
-      %i.fa.fa-star
-    %p.star(ng-class="rating >=  4 ? 'active' : ''")
-      %i.fa.fa-star
-    %p.star(ng-class="rating >=  5 ? 'active' : ''")
-      %i.fa.fa-star
+
   %section.rating-btns
     %a.play-again(ng-click="playAgain()")
       %i.fa.fa-refresh

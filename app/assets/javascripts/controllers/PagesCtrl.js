@@ -48,6 +48,11 @@ app.controller('Page1Ctrl', ['$scope', '$timeout', 'getGame', 'postGame', '$rout
   $scope.finishGame = function($event) {
       postGame.post(function(data) {
         $scope.rating = data.data.rating;
+          $scope.ratingStars = [];
+
+          for (var i = 0; i < parseInt(data.data.rating); i++) {
+              $scope.ratingStars.push(i + 1);
+          }
 
         TweenMax.to($(".rating-popup"), 1, {  opacity: 1, ease:Linear.easeNone});
         TweenMax.to($(".rating-popup"), 1, {  css:{zIndex:10000}, ease:Linear.easeNone,});
