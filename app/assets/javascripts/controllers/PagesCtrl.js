@@ -12,6 +12,7 @@ Page1Ctrl = function ($scope, $timeout, getGame, postGame, $routeParams) {
         $scope.categories = data.tile_sets;
         $scope.tiles = data.tile_sets[$scope.currentCategory].tiles;
 
+        $scope.data = data;
         $timeout(function () {
             DraggModule.makeDraggable();
         });
