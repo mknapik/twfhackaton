@@ -4,6 +4,89 @@
 
 @import "fonts.less";
 @import "variables.less";
-body {
+@import "mixins.less";
+
+html,body {
     font-family: 'GothamRnd-Bold';
+    .size(100%,100%);
+    background: @main-bg;
+    overflow: hidden;
+}
+
+.main-container {
+    .size(100%,100%);
+    padding: 0;
+    >div {
+        height: 100%;
+    }
+    .row {
+        height: 100%;
+        >div {
+            height: 100%;
+        }
+    }
+    .container-fluid {
+        padding: 0;
+        position: relative;
+        height: 100%;
+        .popup-wrapper {
+            height: 0;
+            &.visible {
+                height: 100%;
+            }
+            div {
+                height: 100%;
+            }
+        }
+    }
+}
+
+header {
+    position: relative;
+    .open-popup {
+        position: absolute;
+        top: 0;
+        left: 0;
+        .size(70px,70px);
+        .border-radius(50%);
+        background: @pink;
+        margin: 25px;
+        i{
+            font-size: 24px;
+            color: @white;
+            padding: 23px 24px;
+            &:hover {
+                color: @white;
+            }
+        }
+    }
+   ul {
+        background: @second-bg;
+        .size(100%,120px);
+        text-align: center;
+       li {
+            display: inline-block;
+            .size(150px,50px);
+           
+            margin: 30px 20px;
+       }
+        a {
+            font-family: 'GothamRnd-Bold';
+            font-size: 2em;
+            .size(150px,50px);
+             display: inline-block;
+            background: @btn-primary;
+            color: @white;
+            .border-radius(150px);
+            padding: 5px 0;
+            &:hover {
+                color: @white;
+                cursor: pointer;
+                background: @active-btn;
+            }
+            &.active {
+                background: @active-btn;
+            }
+        }
+    }
 }
