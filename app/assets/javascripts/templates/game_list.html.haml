@@ -1,4 +1,4 @@
-%carousel.padded-top(no-wrap="noWrapSlides")
+%carousel.padded-top.game-list(no-wrap="noWrapSlides")
   %slide(ng-repeat="page in pages")
     .row(ng-repeat="row in page")
       %div(ng-repeat="game in row" class="col-sm-{{ gameItemSize }} col-sm-offset-1")

@@ -1,3 +1,4 @@
+
 // Place all the styles related to the Main controller here.
 // They will automatically be included in application.css.
 // You can use Less here: http://lesscss.org/
@@ -73,7 +74,7 @@ header {
                a{
                    background: @active-btn;
                }
-                
+
             }
        }
         a {
@@ -85,7 +86,7 @@ header {
             color: @white;
             .border-radius(150px);
             img {
-               .size(50px,auto); 
+               .size(50px,auto);
             }
             &:hover {
                 color: @white;
@@ -111,11 +112,12 @@ header {
         .border-radius(30px);
         overflow: hidden;
         img{
-            width: 100%;
-            height: 100%;
+            width: 80%;
+            height: 80%;
+            margin: 10%;
         }
-        
-    }  
+
+    }
 }
 
 .placeholders {
@@ -135,10 +137,40 @@ header {
     }
 }
 
+.modal {
+  border: none;
+
+  .modal-content {
+    .border-radius(30px);
+    border: 5px solid @game-border-light;
+    background: @game-description-bg;
+  }
+
+  .game-details-modal {
+    font-size: 22px;
+
+    .title {
+    }
+
+    .description {
+      text-align: center;
+      margin-top: 2em;
+      margin-bottom: 2em;
+    }
+
+    .btn {
+      font-size: 25px;
+      padding-left: 2em;
+      padding-right: 2em;
+      .border-radius(150px);
+    }
+  }
+}
+
 .game-list {
     margin: 50px 0;
     .panel-default {
-         background: @tile-bg60;
+        background: @tile-bg60;
         .border-radius(30px);
         border: 5px solid @game-border;
     }
