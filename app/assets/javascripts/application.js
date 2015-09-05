@@ -18,4 +18,5 @@
 //= require 'greensock/TweenLite'
 //= require 'greensock/TweenMax'
 //= require 'greensock/easing/EasePack'
+//= require 'responsiveVoice'
 //= require 'tts'
