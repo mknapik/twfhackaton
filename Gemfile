@@ -35,6 +35,7 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.0'
   gem 'jasmine-rails'
   gem 'sqlite3'
+  gem 'pry-rails'
 
   gem 'factory_girl_rails', '~> 4.0'
 end
