@@ -16,6 +16,9 @@ Page1Ctrl = function($scope) {
       TweenMax.to($(".task-popup"), 0.6, {  css:{zIndex:-1}, ease:Linear.easeNone}); 
       TweenMax.to($(".open-popup"), 0.6, {  scale: 1,x:01, y:0,z:0, ease:Linear.easeNone});
   }
+  $scope.playSound = function($event) {
+      $(".task-text").speak();
+  }
 };
 
 
