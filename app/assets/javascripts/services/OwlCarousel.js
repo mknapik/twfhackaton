@@ -9,6 +9,10 @@ app.directive('owlCarousel', ['$timeout', '$rootScope', function ($timeout, $roo
                     responsive: true,
                     pagination: true,
                     navigation: false
+                    navigationText: [
+                      "<i class='fa fa-angle-left'></i>",
+                      "<i class='fa fa-angle-right'></i>"
+                    ],
                 });
             });
         }
