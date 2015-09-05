@@ -10,7 +10,7 @@
 
   .container-fluid
     .col-sm-6.text-center
-      .btn.btn-lg.btn-primary(ng-click="play()")
+      %a.btn.btn-lg.btn-primary(ng-href="#/games/{{ selectedGame.id }}")
         Zagraj!
 
     .col-sm-6.text-center

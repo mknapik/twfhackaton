@@ -1,35 +1,22 @@
 app = angular.module('twf')
 
-app.controller('GameListCtrl', ['$scope', '$modal', 'GameListSettings',
-  ($scope, $modal, GameListSettings) ->
+app.controller('GameListCtrl', ['$scope', '$modal', 'GameListSettings', 'Games'
+  ($scope, $modal, GameListSettings, Games) ->
     $scope.init = ->
       $scope.rows = []
 
-      # FIXME: temporary. Use $resource
+
       games = [
-        {id: 1, title: "Gra #1", image: "http://lorempixel.com/200/200/abstract/1", description: "Blah"},
-        {id: 2, title: "Gra #3", image: "http://lorempixel.com/200/200/abstract/2", description: "Blah-blah"},
-        {id: 3, title: "Gra #2", image: "http://lorempixel.com/200/200/abstract/3", description: "Blah-blah-blah"},
-        {id: 4, title: "Gra #4", image: "http://lorempixel.com/200/200/abstract/4", description: "Blah-blah-blah"},
-        {id: 5, title: "Gra #5", image: "http://lorempixel.com/200/200/abstract/5", description: "Blah-blah-blah"},
-        {id: 6, title: "Gra #6", image: "http://lorempixel.com/200/200/abstract/6", description: "Blah-blah-blah"},
-        {id: 7, title: "Gra #7", image: "http://lorempixel.com/200/200/abstract/7", description: "Blah-blah-blah"},
-        {id: 8, title: "Gra #8", image: "http://lorempixel.com/200/200/abstract/8", description: "Blah-blah-blah"},
-          {id: 1, title: "Gra #1", image: "http://lorempixel.com/200/200/abstract/1", description: "Blah"},
-          {id: 2, title: "Gra #3", image: "http://lorempixel.com/200/200/abstract/2", description: "Blah-blah"},
-          {id: 3, title: "Gra #2", image: "http://lorempixel.com/200/200/abstract/3", description: "Blah-blah-blah"},
-          {id: 4, title: "Gra #4", image: "http://lorempixel.com/200/200/abstract/4", description: "Blah-blah-blah"},
-          {id: 5, title: "Gra #5", image: "http://lorempixel.com/200/200/abstract/5", description: "Blah-blah-blah"},
-          {id: 6, title: "Gra #6", image: "http://lorempixel.com/200/200/abstract/6", description: "Blah-blah-blah"},
-          {id: 7, title: "Gra #7", image: "http://lorempixel.com/200/200/abstract/7", description: "Blah-blah-blah"},
-          {id: 8, title: "Gra #8", image: "http://lorempixel.com/200/200/abstract/8", description: "Blah-blah-blah"},
-        {id: 9, title: "Gra #9", image: "http://lorempixel.com/200/200/abstract/9", description: "Blah-blah-blah"}
+        {id: 1, title: "Gra #1", image: "http://lorempixel.com/200/200/abstract/1", description: "Blah"}
+        {id: 2, title: "Gra #3", image: "http://lorempixel.com/200/200/abstract/2", description: "Blah-blah"}
       ]
 
-      rows = games.inGroupsOf(GameListSettings.GAMES_PER_ROW)
-      $scope.pages = rows.inGroupsOf(GameListSettings.ROWS_PER_PAGE)
+      games = Games.query({}, ->
+        rows = games.inGroupsOf(GameListSettings.GAMES_PER_ROW)
+        $scope.pages = rows.inGroupsOf(GameListSettings.ROWS_PER_PAGE)
 
-      $scope.gameItemSize = (12 / GameListSettings.GAMES_PER_ROW) - 2
+        $scope.gameItemSize = (12 / GameListSettings.GAMES_PER_ROW) - 2
+      )
 
     $scope.showGameDetails = (game) ->
       $scope.selectedGame = game
@@ -42,5 +29,6 @@ app.controller('GameListCtrl', ['$scope', '$modal', 'GameListSettings',
       })
 
     $scope.init()
+    $scope.initOwl = true
 ])
 
