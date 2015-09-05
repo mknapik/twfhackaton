@@ -1,5 +1,5 @@
-.container.padded-top.game-list.owl-carousel.owl-theme(owl-carousel)
-  .page.item(ng-repeat="page in pages")
+%carousel.padded-top(no-wrap="noWrapSlides")
+  %slide(ng-repeat="page in pages")
     .row(ng-repeat="row in page")
       %div(ng-repeat="game in row" class="col-sm-{{ gameItemSize }} col-sm-offset-1")
         .panel.panel-default(ng-click="showGameDetails(game)")

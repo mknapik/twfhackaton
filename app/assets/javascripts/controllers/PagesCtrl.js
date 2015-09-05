@@ -56,6 +56,9 @@ Page1Ctrl = function ($scope, $timeout, getGame, postGame, $routeParams,$locatio
         var id = $(event.target).attr("id");
         $scope.currentCategory = id;
         $scope.tiles = $scope.data.tile_sets[$scope.currentCategory].tiles;
+        $timeout(function(){
+            DraggModule.makeDraggable();
+      });
     };
 
 };

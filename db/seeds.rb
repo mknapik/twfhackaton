@@ -78,7 +78,7 @@ if Dir.exists?(Rails.root.join('tmp/education'))
 
     sample = tiles.sample(50)
 
-    TileSet.where(name: 'Edukacja', game: Game.find_by!(name: 'Edukacja')).first_or_create! do |set|
+    TileSet.where(name: 'Edukacja', game: Game.find_by!(name: "Edukacja #{i}")).first_or_create! do |set|
       set.tiles << sample
       set.image = open('tmp/education/education.png')
     end
