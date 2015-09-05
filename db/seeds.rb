@@ -60,31 +60,31 @@ Solution.where(tile_id: b.id, game_id: game.id).first_or_create! do |s|
 end
 
 Solution.where(tile_id: yogurt.id, game_id: game.id).first_or_create!
-
-if Dir.exists?(Rails.root.join('tmp/education'))
-
-  tiles = Dir.glob('tmp/education/*').map do |file_name|
-    puts file_name
-    name = file_name.sub('tmp/education', '').gsub('.svg', '')
-    Tile.where(name: name).first_or_create! do |tile|
-      tile.image = open(file_name)
-    end
-  end
-
-  (1..10).each do |i|
-    education = Game.where(name: "Edukacja #{i}", game_type_id: 2).first_or_create! do |game|
-      game.description = ''
-    end
-
-    sample = tiles.sample(50)
-
-    TileSet.where(name: 'Edukacja', game: Game.find_by!(name: "Edukacja #{i}")).first_or_create! do |set|
-      set.tiles << sample
-      set.image = open('tmp/education/education.png')
-    end
-
-    sample.take(20).each do |tile|
-      Solution.where(tile_id: tile.id, game_id: education.id).first_or_create!
-    end
-  end
-end
+#
+# if Dir.exists?(Rails.root.join('tmp/education'))
+#
+#   tiles = Dir.glob('tmp/education/*').map do |file_name|
+#     puts file_name
+#     name = file_name.sub('tmp/education', '').gsub('.svg', '')
+#     Tile.where(name: name).first_or_create! do |tile|
+#       tile.image = open(file_name)
+#     end
+#   end
+#
+#   (1..10).each do |i|
+#     education = Game.where(name: "Edukacja #{i}", game_type_id: 2).first_or_create! do |game|
+#       game.description = ''
+#     end
+#
+#     sample = tiles.sample(50)
+#
+#     TileSet.where(name: 'Edukacja', game: Game.find_by!(name: "Edukacja #{i}")).first_or_create! do |set|
+#       set.tiles << sample
+#       set.image = open('tmp/education/education.png')
+#     end
+#
+#     sample.take(20).each do |tile|
+#       Solution.where(tile_id: tile.id, game_id: education.id).first_or_create!
+#     end
+#   end
+# end

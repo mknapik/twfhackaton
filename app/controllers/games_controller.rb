@@ -29,6 +29,6 @@ class GamesController < ApplicationController
   private
 
   def tiles_params
-    params[:tiles].nil? ? [] : params.require(:tiles)
+    params[:tiles].nil? ? [] : params.require(:tiles).map(&:to_i)
   end
 end
