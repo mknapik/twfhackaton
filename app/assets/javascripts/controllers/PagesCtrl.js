@@ -2,15 +2,19 @@ var Page1Ctrl, app;
 
 app = angular.module('twf');
 
-Page1Ctrl = function($scope,getGame, $routeParams) {
+Page1Ctrl = function($scope, $timeout, getGame, $routeParams) {
   $scope.title = "Hello, page1!";
   $scope.currentCategory = 0;
+
   getGame.get(function(data){
       $scope.description = data.description;
       console.log(data);
       $scope.categories = data.tile_sets;
       $scope.tiles = data.tile_sets[$scope.currentCategory].tiles;
 
+      $timeout(function(){
+        DraggModule.makeDraggable();
+      });
   }, $routeParams.id);
   $scope.openPopup = function($event) {
       TweenMax.to($(event.target), 0.2, {  opacity: 0, ease:Linear.easeNone});
@@ -30,5 +34,5 @@ Page1Ctrl = function($scope,getGame, $routeParams) {
 };
 
 
-app.controller('Page1Ctrl', ['$scope','getGame', '$routeParams', Page1Ctrl]);
+app.controller('Page1Ctrl', ['$scope', '$timeout', 'getGame', '$routeParams', Page1Ctrl]);
 

@@ -83,6 +83,9 @@ header {
             background: @btn-primary;
             color: @white;
             .border-radius(150px);
+            img {
+               .size(50px,auto); 
+            }
             &:hover {
                 color: @white;
                 cursor: pointer;
@@ -123,5 +126,15 @@ header {
         margin: 20px;
         background: @placeholder-bg;
         .border-radius(30px);
+    }
+}
+
+.game-list {
+    .panel-default {
+         background: @tile-bg;
+        .border-radius(30px);
+    }
+    .panel-footer {
+        
     }
 }
