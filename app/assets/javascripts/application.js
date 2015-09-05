@@ -17,3 +17,4 @@
 //= require 'greensock/TweenLite'
 //= require 'greensock/TweenMax'
 //= require 'greensock/easing/EasePack'
+//= require 'tts'
