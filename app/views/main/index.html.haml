@@ -1,10 +1,1 @@
-.container-fluid(ng-app="twf")
-  .panel.panel-success(ng-controller="MainCtrl" )
-    .panel-heading
-      %h1(ng-if="name")
-        Hello, {{name}}
-    .panel-body
-      %form.form-inline
-        .form-group
-          %input.form-control(ng-model="name"){autofocus: '', placeholder: 'Enter your name', type: 'text'}
-
+.container-fluid(ng-view)
