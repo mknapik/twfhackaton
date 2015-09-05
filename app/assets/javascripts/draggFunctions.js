@@ -29,7 +29,13 @@ var DraggModule = function () {
     };
 
     var getCurrenConfiguration = function () {
-        return PlacecholderModel;
+        var result = [];
+        for(var i in PlacecholderModel){
+            if(PlacecholderModel.hasOwnProperty(1) && PlacecholderModel[i].elementIside){
+                result.push(PlacecholderModel[i].id);
+            }
+        }
+        return result;
 
     };
     function elenemtIsOnPlaceholder(element, ignoreOcupated) {
@@ -147,8 +153,3 @@ var DraggModule = function () {
         getCurrenConfiguration: getCurrenConfiguration
     };
 }();
-
-
-$('document').ready(function () {
-    //DraggModule.makeDraggable();
-});
