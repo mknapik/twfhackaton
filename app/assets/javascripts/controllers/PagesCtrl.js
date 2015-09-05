@@ -31,6 +31,7 @@ Page1Ctrl = function ($scope, $timeout, getGame, postGame, $routeParams) {
     };
     $scope.playSound = function ($event) {
         $(event.target).parent().speak();
+        event.stopPropagation();
     };
     $scope.switchCategory = function($event) {
         var id = $(event.target).attr("id");
