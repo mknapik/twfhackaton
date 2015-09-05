@@ -9,7 +9,7 @@
         {{category.name}}
         
 %article.tile-items
-  %section.tile-item(ng-repeat="tile in tiles" )
+  %section.tile-item(ng-repeat="tile in tiles" data-id="{{tile.id}}") 
     %img(src="{{tile.image_uri}}")
     
 %article.placeholders

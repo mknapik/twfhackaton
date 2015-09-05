@@ -21,3 +21,5 @@
 //= require 'greensock/TweenMax'
 //= require 'greensock/easing/EasePack'
 //= require 'tts'
+////= require Draggable
+//= require draggFunctions

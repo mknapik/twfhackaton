@@ -1,9 +1,9 @@
 var DraggModule = function () {
 
     var config = {
-        placecholderClass: 'placecholder',
-        elementSelector: '.element',
-        draggableContainer: '.draggablePlace'
+        placecholderClass: 'placeholder',
+        elementSelector: '.tile-item',
+        draggableContainer: '.container-fluid'
     };
 
     var draggedElementStartPosition = {
@@ -68,8 +68,6 @@ var DraggModule = function () {
                             y: placecholderCordinates.bottom - draggedElementStartPosition.y
                         };
                     }
-
-                    console.log(result);
                 }
             }
 
@@ -91,7 +89,9 @@ var DraggModule = function () {
 
         for (var i in placecholdersReferences) {
             if (placecholdersReferences.hasOwnProperty(i)) {
-                PlacecholderModel[i] = {elementIside: false};
+                PlacecholderModel[i] = {
+                    elementIside: false
+                };
             }
 
         }
@@ -104,10 +104,7 @@ var DraggModule = function () {
             throwProps: true,
             autoScroll: true,
             liveSnap: true,
-            onReleaseParams: function (b, a) {
 
-                console.log(this.target.getBoundingClientRect());
-            },
             onPress: function (b, a) {
                 draggedElementStartPosition = {
                     x: this.target.getBoundingClientRect().left,
@@ -116,15 +113,16 @@ var DraggModule = function () {
                 var isAdded = elenemtIsOnPlaceholder(this.target, true);
                 if (isAdded) {
                     PlacecholderModel[isAdded.index].elementIside = false;
+                    delete PlacecholderModel[isAdded.index].id;
 
                 }
-                // console.log('onDrag',this.target);
             },
             onDragEnd: function (a, b) {
-                console.log(a, b);
+
                 var currentPlacecholder = elenemtIsOnPlaceholder(this.target);
                 if (currentPlacecholder) {
                     PlacecholderModel[currentPlacecholder.index].elementIside = true;
+                    PlacecholderModel[currentPlacecholder.index].id = this.target.getAttribute("data-id");
                 } else {
                     TweenLite.to(this.target, 0.5, {
                         x: 1,
@@ -132,7 +130,6 @@ var DraggModule = function () {
                         delay: 0.1
                     });
                 }
-                //console.log('onDragEnd',this.target);
             },
             snap: {
                 x: function (endValue) {
@@ -140,7 +137,6 @@ var DraggModule = function () {
                     return elenemtIsOnPlaceholder(this.target) ? elenemtIsOnPlaceholder(this.target).x : endValue; //Math.round(endValue / 100) * 100;
                 },
                 y: function (endValue) {
-                    //console.log(endValue);
                     return elenemtIsOnPlaceholder(this.target) ? elenemtIsOnPlaceholder(this.target).y : endValue;
                 }
             }
@@ -154,5 +150,5 @@ var DraggModule = function () {
 
 
 $('document').ready(function () {
-    DraggModule.makeDraggable();
+    //DraggModule.makeDraggable();
 });
