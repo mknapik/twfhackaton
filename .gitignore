@@ -97,3 +97,5 @@ pids
 *.seed
 *.log
 npm-debug.log*
+
+.DS_Store
