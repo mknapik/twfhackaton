@@ -20,6 +20,8 @@
 //= require 'greensock/TweenLite'
 //= require 'greensock/TweenMax'
 //= require 'greensock/easing/EasePack'
+//= require 'responsiveVoice'
 //= require 'tts'
-////= require Draggable
+
+//= require Draggable
 //= require draggFunctions
