@@ -1,20 +1,13 @@
 app = angular.module('twf')
 
-app.controller('GameListCtrl', ['$scope', '$modal', 'GameListSettings', 'Games'
-  ($scope, $modal, GameListSettings, Games) ->
+app.controller('GameListCtrl', ['$scope', '$modal', '$timeout', 'GameListSettings', 'Games'
+  ($scope, $modal, $timeout, GameListSettings, Games) ->
     $scope.init = ->
       $scope.rows = []
-
-
-      games = [
-        {id: 1, title: "Gra #1", image: "http://lorempixel.com/200/200/abstract/1", description: "Blah"}
-        {id: 2, title: "Gra #3", image: "http://lorempixel.com/200/200/abstract/2", description: "Blah-blah"}
-      ]
 
       games = Games.query({}, ->
         rows = games.inGroupsOf(GameListSettings.GAMES_PER_ROW)
         $scope.pages = rows.inGroupsOf(GameListSettings.ROWS_PER_PAGE)
-
         $scope.gameItemSize = (12 / GameListSettings.GAMES_PER_ROW) - 2
       )
 
@@ -29,6 +22,5 @@ app.controller('GameListCtrl', ['$scope', '$modal', 'GameListSettings', 'Games'
       })
 
     $scope.init()
-    $scope.initOwl = true
 ])
 
