@@ -11,5 +11,7 @@ app.config(['$httpProvider', '$routeProvider', '$locationProvider',
                 }).when('/games/:id', {
                     templateUrl: '<%= asset_path('templates/page1.html') %>',
                     controller: 'Page1Ctrl'
+                }).when('/new-game-set', {
+                    templateUrl: '<%= asset_path('templates/new_game_set.html') %>'
                 })
 ])
