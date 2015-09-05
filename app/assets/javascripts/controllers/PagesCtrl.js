@@ -29,7 +29,7 @@ Page1Ctrl = function ($scope, $timeout, getGame, postGame, $routeParams) {
         TweenMax.to($(".open-popup"), 0.6, {scale: 1, x: 01, y: 0, z: 0, ease: Linear.easeNone});
     };
     $scope.playSound = function ($event) {
-        $(".task-text").speak();
+        $(event.target).parent().speak();
     };
     $scope.switchCategory = function($event) {
         var id = $(event.target).attr("id");
