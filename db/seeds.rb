@@ -27,13 +27,13 @@ end
 bread = Tile.where(name: 'chleb').first_or_create! do |tile|
   tile.image = open('http://lorempixel.com/200/200/food/10/')
 end
-Tile.where(name: 'bułka').first_or_create! do |tile|
+b = Tile.where(name: 'bułka').first_or_create! do |tile|
   tile.image = open('http://lorempixel.com/200/200/food/7/')
 end
 cheese = Tile.where(name: 'ser').first_or_create! do |tile|
   tile.image = open('http://lorempixel.com/200/200/food/3/')
 end
-Tile.where(name: 'jogurt').first_or_create! do |tile|
+yogurt = Tile.where(name: 'jogurt').first_or_create! do |tile|
   tile.image = open('http://lorempixel.com/200/200/food/')
 end
 
@@ -47,5 +47,16 @@ TileSet.where(name: 'Pieczywo', game: Game.find_by!(name: 'Śniadanie')).first_o
   set.image = open('http://lorempixel.com/200/200/food/')
 end
 
-Solution.where(tile_id: bread.id, game_id: game.id).first_or_create!
-Solution.where(tile_id: cheese.id, game_id: game.id).first_or_create!
+Solution.where(tile_id: bread.id, game_id: game.id).first_or_create! do |s|
+  s.set = 1
+end
+
+Solution.where(tile_id: cheese.id, game_id: game.id).first_or_create! do |s|
+  s.set = 2
+end
+
+Solution.where(tile_id: b.id, game_id: game.id).first_or_create! do |s|
+  s.set = 2
+end
+
+Solution.where(tile_id: yogurt.id, game_id: game.id).first_or_create!

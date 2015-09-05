@@ -4,7 +4,7 @@ class TilesController < ApplicationController
     @tile = Tile.new
   end
 
-  def show
+  def index
 
   end
 

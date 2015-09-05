@@ -2,7 +2,7 @@ FactoryGirl.define do
   factory :game do
     name 'MyString'
     description 'MyText'
-    game_type_id 1
+    association :game_type
   end
 
 end
