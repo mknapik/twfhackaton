@@ -8,11 +8,11 @@
       %a(ng-click="switchCategory()" id="{{$index}}")
         {{category.name}}
         %i.fa.fa-volume-up(ng-click="playSound()")
-        
+
 %article.tile-items
-  %section.tile-item(ng-repeat="tile in tiles" data-id="{{tile.id}}") 
+  %section.tile-item(ng-repeat="tile in tiles" data-id="{{tile.id}}")
     %img(src="{{tile.image_uri}}")
-    
+
 %article.placeholders
   %section.placeholder
   %section.placeholder
@@ -23,6 +23,6 @@
 
 %a.finish-game(ng-click="finishGame()")
   %i.fa.fa-check
-  
+
 %div.popup-ratings
   %div(ng-include src="'#{asset_path('templates/rating.html')}'")
