@@ -3,6 +3,7 @@ class CreateTilesSets < ActiveRecord::Migration
     create_table :tiles_sets do |t|
       t.integer :tile_id, null: false
       t.integer :tile_set_id, null: false
+      t.attachment :image
     end
   end
 end
