@@ -1,9 +1,9 @@
-<%= form_for(@tile, :url => { :action => :create }, multipart: true) do |t| %>
-<div class="field">
+<%= form_for(@tile, :url => { :action => :create }, multipart: true, :class => 'form-inline') do |t| %>
+<div class="form-group">
     <%= t.label :name %>
     <%= t.text_field :name %>
 </div>
-<div class="field">
+<div class="form-group">
     <%= t.label :image %>
     <%= t.file_field :image %>
 </div>

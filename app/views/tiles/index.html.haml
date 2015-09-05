@@ -1,0 +1,11 @@
+%h1 All images
+- @tiles.each_slice(5).each do |row|
+  .row
+    - row.each do |tile|
+      .col-sm-2.col-offset-sm-1
+        .panel.panel-default
+          .panel-body
+            %img.img-responsive.center-block(src="#{ tile.image.url(:thumb) }")
+          .panel-footer
+            %input(type="checkbox" value="#{ tile.id }")
+              = tile.name

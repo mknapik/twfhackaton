@@ -1,11 +1,12 @@
 class TilesController < ApplicationController
+  layout 'admin'
 
   def new
     @tile = Tile.new
   end
 
   def index
-
+    @tiles = Tile.all
   end
 
   def create
