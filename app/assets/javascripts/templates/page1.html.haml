@@ -4,9 +4,10 @@
   %a.open-popup(ng-click="openPopup()")
     %i.fa.fa-bars
   %ul
-    %li(ng-repeat="category in categories" ng-class="{active: currentCategory ==  $index}")
-      %a
+    %li(ng-repeat="category in categories" ng-class="currentCategory ==  $index ? 'active' : ''" )
+      %a(ng-click="switchCategory()" id="{{$index}}")
         {{category.name}}
+        %i.fa.fa-volume-up(ng-click="playSound()")
         
 %article.tile-items
   %section.tile-item(ng-repeat="tile in tiles" data-id="{{tile.id}}") 
