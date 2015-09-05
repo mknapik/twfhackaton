@@ -10,5 +10,21 @@ angular.module('twf')
                callback("Request failed");
           });
       }
-    };
+    };    
   }]);
+  
+  angular.module('twf')
+    .factory('postGame', ['$http', function($http){
+        return{
+            post: function (callback) {
+
+                $http.post('/api/games/1/solution', {tiles: DraggModule.getCurrenConfiguration()}).
+                        then(function (data) {
+                            callback(data);
+                        }, function (response) {
+                            callback("Request failed");
+                        });
+            }
+        };
+      }
+    ]);
