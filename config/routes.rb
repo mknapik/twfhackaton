@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   scope :api do
     resources :games, only: [:index, :show] do
       get :preview
+      post :solution
     end
   end
 end
