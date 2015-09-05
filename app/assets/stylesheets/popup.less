@@ -79,4 +79,39 @@
     opacity: 0;
     z-index: 0;
     .border-radius(20px);
+    text-align: center;
+    overflow: hidden;
+    .rating-btns {
+        margin-top: 40px;
+        a{
+            font-family: 'GothamRnd-Bold';
+            font-size: 1.4em;
+            padding: 12px 30px;
+            display: inline-block;
+            background: @btn-primary;
+            color: @white;
+            .border-radius(150px);
+            margin: 0 70px;
+            i{
+                margin-right: 3px;
+            }
+        }
+    }
+    .rating{
+        margin-top: 130px;
+    }
+    .star {
+        display: inline-block;
+        margin: 0 10px;
+        i{
+            font-size: 60px;
+            color: @black;
+        }
+        &.active {
+            i{
+                 color: @yellow;
+            }
+        }
+    }
+    
 }

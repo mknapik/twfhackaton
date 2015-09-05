@@ -1,15 +1,24 @@
 %div.rating-popup
-  %a.close-popup(ng-click="closePopup()")
+  %a.close-popup(ng-click="closePopupRating()")
     %i.fa.fa-times
   %section.rating
-    %p.star
+    %p.star(ng-class="rating >=  1 ? 'active' : ''")
       %i.fa.fa-star
-    %p.star
+    %p.star(ng-class="rating >=  2 ? 'active' : ''")
       %i.fa.fa-star
-    %p.star
+    %p.star(ng-class="rating >=  3 ? 'active' : ''")
       %i.fa.fa-star
-    %p.star
+    %p.star(ng-class="rating >=  4 ? 'active' : ''")
       %i.fa.fa-star
-    %p.star
+    %p.star(ng-class="rating >=  5 ? 'active' : ''")
       %i.fa.fa-star
+  %section.rating-btns
+    %a.play-again(ng-click="playAgain()")
+      %i.fa.fa-refresh
+      Zagraj ponownie
+    
+    %a.close-game(ng-click="closeGame()")
+      %i.fa.fa-times
+      Zakończ
+    
     
