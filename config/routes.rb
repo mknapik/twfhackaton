@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   mount JasmineRails::Engine => '/specs' if defined?(JasmineRails)
   root 'main#index'
 
