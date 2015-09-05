@@ -1,9 +1,10 @@
-.container.game-list
-  .row(ng-repeat="gameRow in rows")
-    %div(ng-repeat="game in gameRow" class="col-sm-{{ gameItemSize }}" ng-click="showGameDetails(game)")
-      .panel.panel-default
-        .panel-body
-          %img.img-responsive.center-block(ng-src="{{game.image}}")
+.container.game-list.owl-carousel.owl-theme
+  .page.item(ng-repeat="page in pages")
+    .row(ng-repeat="row in page")
+      %div(ng-repeat="game in row" class="col-sm-{{ gameItemSize }} col-sm-offset-1")
+        .panel.panel-default(ng-click="showGameDetails(game)")
+          .panel-body
+            %img.img-responsive.center-block(ng-src="{{game.image}}")
 
-        .panel-footer.text-center
-          {{ game.title }}
+          .panel-footer.text-center
+            {{ game.title }}

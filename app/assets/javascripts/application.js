@@ -8,6 +8,8 @@
 //= require twitter/bootstrap
 //= require angular-ui-bootstrap-tpls
 
+//= require main
+
 //= require app
 //= require_tree ./controllers
 //= require_tree ./templates
