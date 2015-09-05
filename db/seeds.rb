@@ -20,17 +20,17 @@ GameType.where(id: 3, name: 'klasyfikacja').first_or_create! do |type|
   type.description = 'Dopasowanie obrazków w grupy'
 end
 
-Game.where(name: 'Śniadanie', game_type_id: 1).first_or_create! do |game|
+game = Game.where(name: 'Śniadanie', game_type_id: 1).first_or_create! do |game|
   game.description = 'Wybierz produkty na śniadanie'
 end
 
-Tile.where(name: 'chleb').first_or_create! do |tile|
+bread = Tile.where(name: 'chleb').first_or_create! do |tile|
   tile.image = open('http://lorempixel.com/200/200/food/10/')
 end
 Tile.where(name: 'bułka').first_or_create! do |tile|
   tile.image = open('http://lorempixel.com/200/200/food/7/')
 end
-Tile.where(name: 'ser').first_or_create! do |tile|
+cheese = Tile.where(name: 'ser').first_or_create! do |tile|
   tile.image = open('http://lorempixel.com/200/200/food/3/')
 end
 Tile.where(name: 'jogurt').first_or_create! do |tile|
@@ -46,3 +46,6 @@ TileSet.where(name: 'Pieczywo', game: Game.find_by!(name: 'Śniadanie')).first_o
   set.tiles << [Tile.find_by!(name: 'bułka'), Tile.find_by!(name: 'chleb')]
   set.image = open('http://lorempixel.com/200/200/food/')
 end
+
+Solution.where(tile_id: bread.id, game_id: game.id).first_or_create!
+Solution.where(tile_id: cheese.id, game_id: game.id).first_or_create!
