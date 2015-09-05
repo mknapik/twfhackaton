@@ -4,6 +4,6 @@ class TileSetSerializer < ActiveModel::Serializer
   has_many :tiles
 
   def image_uri
-    ''
+    object.image.url
   end
 end
