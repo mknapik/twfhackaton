@@ -11,6 +11,48 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 20150905083905) do
+
+  create_table "game_types", force: :cascade do |t|
+    t.string   "name",        null: false
+    t.text     "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "games", force: :cascade do |t|
+    t.string   "name",         null: false
+    t.text     "description"
+    t.integer  "game_type_id", null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  create_table "solutions", force: :cascade do |t|
+    t.integer  "game_id",    null: false
+    t.integer  "tile_id",    null: false
+    t.integer  "order"
+    t.integer  "set"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "tile_sets", force: :cascade do |t|
+    t.string   "name",       null: false
+    t.integer  "game_id",    null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "tiles", force: :cascade do |t|
+    t.string   "name",       null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "tiles_sets", force: :cascade do |t|
+    t.integer "tile_id",     null: false
+    t.integer "tile_set_id", null: false
+  end
 
 end
