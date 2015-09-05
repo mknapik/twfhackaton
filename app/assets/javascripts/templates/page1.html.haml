@@ -5,7 +5,7 @@
     %i.fa.fa-bars
   %ul
     %li(ng-repeat="category in categories" ng-class="currentCategory ==  $index ? 'active' : ''" )
-      %a(ng-click="switchCategory()" id="{{$index}}")
+      %a.read-text(ng-click="switchCategory()" id="{{$index}}")
         {{category.name}}
         %i.fa.fa-volume-up(ng-click="playSound()")
 
