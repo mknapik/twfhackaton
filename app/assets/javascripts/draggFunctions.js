@@ -158,8 +158,20 @@ var DraggModule = function () {
             }
         });
     };
+
+    var reset = function () {
+        var elts = document.getElementsByClassName(config.placecholderClass);
+
+        for (var i in elts) {
+            if (elts[i].classList && elts[i].classList.contains('active')) {
+                elts[i].classList.remove('active');
+            }
+        }
+    };
+
     return {
         makeDraggable: makeDraggable,
-        getCurrenConfiguration: getCurrenConfiguration
+        getCurrenConfiguration: getCurrenConfiguration,
+        reset: reset
     };
 }();
