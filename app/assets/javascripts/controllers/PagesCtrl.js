@@ -2,7 +2,7 @@ var Page1Ctrl, app;
 
 app = angular.module('twf');
 
-Page1Ctrl = function ($scope, $timeout, getGame, postGame, $routeParams) {
+Page1Ctrl = function ($scope, $timeout, getGame, postGame, $routeParams,$location) {
     $scope.title = "Hello, page1!";
     $scope.currentCategory = 0;
 
@@ -16,10 +16,11 @@ Page1Ctrl = function ($scope, $timeout, getGame, postGame, $routeParams) {
       });
   }, $routeParams.id);
   $scope.openPopup = function($event) {
+      TweenMax.to($(".task-popup"), 1, {  css:{zIndex:10000}, ease:Linear.easeNone});
       TweenMax.to($(event.target), 0.2, {  opacity: 0, ease:Linear.easeNone});
-      TweenMax.to($(event.target).parent(), 0.6, {  scale: 40,x:900, y:900,z:-20, ease:Linear.easeNone});
-      TweenMax.to($(".task-popup"), 1, {  opacity: 1, ease:Linear.easeNone, delay: 0.5});
-      TweenMax.to($(".task-popup"), 1, {  css:{zIndex:1000}, ease:Linear.easeNone, delay: 0.5});
+      TweenMax.to($(event.target).parent(), 0.5, {  scale: 40,x:900, y:900,z:-20, ease:Linear.easeNone});
+      TweenMax.to($(".task-popup"), 1, {  opacity: 1, ease:Linear.easeNone});
+      
       TweenMax.to($(event.target), 1, {  opacity: 1, ease:Linear.easeNone,delay: 2});
   }
   $scope.closePopup = function($event) {
@@ -32,19 +33,25 @@ Page1Ctrl = function ($scope, $timeout, getGame, postGame, $routeParams) {
       TweenMax.to($(".rating-popup"), 0.6, {  css:{zIndex:-1}, ease:Linear.easeNone});
   }
   $scope.playSound = function($event) {
-      $(event.target).parent().speak();
-        event.stopPropagation();
+      event.stopPropagation();
+      $(event.target).parents(".read-text").speak();
+        
   }
+ 
   $scope.finishGame = function($event) {
       postGame.post(function(data){
         $scope.rating = data.data.rating;
         console.log(data.data.rating);
           TweenMax.to($(".rating-popup"), 1, {  opacity: 1, ease:Linear.easeNone});
-          TweenMax.to($(".rating-popup"), 1, {  css:{zIndex:1000}, ease:Linear.easeNone,}); 
+          TweenMax.to($(".rating-popup"), 1, {  css:{zIndex:10000}, ease:Linear.easeNone,}); 
       },$routeParams.id);
   }
   $scope.playAgain = function($event) {
+     window.location.reload();
+      TweenMax.to($(".rating-popup"), 0.6, {  opacity: 0, ease:Linear.easeNone});
+      TweenMax.to($(".rating-popup"), 0.6, {  css:{zIndex:-1}, ease:Linear.easeNone});
   }
+  
    $scope.switchCategory = function($event) {
         var id = $(event.target).attr("id");
         $scope.currentCategory = id;
@@ -52,5 +59,5 @@ Page1Ctrl = function ($scope, $timeout, getGame, postGame, $routeParams) {
     };
 
 };
-app.controller('Page1Ctrl', ['$scope', '$timeout', 'getGame', 'postGame', '$routeParams', Page1Ctrl]);
+app.controller('Page1Ctrl', ['$scope', '$timeout', 'getGame', 'postGame', '$routeParams','$location', Page1Ctrl]);
 
