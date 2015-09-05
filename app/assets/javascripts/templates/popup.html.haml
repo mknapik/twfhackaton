@@ -1,0 +1,12 @@
+%div.task-popup
+  %a.close-popup(ng-click="closePopup()")
+    %i.fa.fa-times
+  %h1
+    Polecenie
+  %div.task
+    %p.task-text
+      {{description}}
+      %a.sound(ng-click="playSound()")
+        %i.fa.fa-volume-up
+   
+   

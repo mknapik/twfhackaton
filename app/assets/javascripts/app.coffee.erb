@@ -1,0 +1,18 @@
+app = angular.module('twf', ['ngResource', 'ngRoute', 'templates', 'ui.bootstrap'])
+
+app.config(['$httpProvider', '$routeProvider', '$locationProvider',
+    ($httpProvider, $routeProvider, $locationProvider) ->
+        $httpProvider.defaults.headers.common['X-CSRF-Token'] = $('meta[name=csrf-token]').attr('content')
+
+        $routeProvider
+        .when('/', {
+                    templateUrl: '<%= asset_path('templates/game_list.html') %>',
+                    controller: 'GameListCtrl'
+                }).when('/page1', {
+                    templateUrl: '<%= asset_path('templates/page1.html') %>',
+                    controller: 'Page1Ctrl'
+                }).when('/page2', {
+                    templateUrl: '<%= asset_path('templates/page2.html') %>',
+                    controller: 'Page2Ctrl'
+                })
+])

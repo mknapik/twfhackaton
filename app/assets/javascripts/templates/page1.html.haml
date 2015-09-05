@@ -1,0 +1,19 @@
+%div.popup-wrapper
+  %div(ng-include src="'#{asset_path('templates/popup.html')}'")
+%header
+  %a.open-popup(ng-click="openPopup()")
+    %i.fa.fa-bars
+  %ul
+    %li(ng-repeat="category in categories")
+      %a
+        {{category.name}}
+        
+%article.tile-items
+  %section.tile-item(ng-repeat="tile in tiles")
+    %img(src="{{tile.image_uri}}")
+    
+%article.placeholders
+  %section.placeholder
+  %section.placeholder
+  %section.placeholder
+  %section.placeholder

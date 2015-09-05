@@ -12,13 +12,17 @@ gem 'haml-rails'
 gem 'less-rails'
 gem 'twitter-bootstrap-rails'
 gem 'angularjs-rails'
+gem 'angular-rails-templates'
 gem 'angularjs-rails-resource', '~> 2.0.0'
+gem 'angular-ui-bootstrap-rails'
 gem 'jquery-rails'
 gem 'execjs'
 gem 'therubyracer', platforms: :ruby
 gem 'libv8'
 gem 'greensock-rails'
 gem 'owlcarousel-rails'
+gem 'paperclip'
+gem 'aws-sdk', '< 2.0'
 
 gem 'active_model_serializers'
 # bundle exec rake doc:rails generates the API under doc/api.
@@ -32,6 +36,7 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.0'
   gem 'jasmine-rails'
   gem 'sqlite3'
+  gem 'pry-rails'
 
   gem 'factory_girl_rails', '~> 4.0'
 end

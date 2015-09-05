@@ -1,0 +1,71 @@
+@import "fonts.less";
+@import "variables.less";
+@import "mixins.less";
+
+.task-popup {
+    background: @pink;
+    position: absolute;
+    top:0;
+    left:0;
+    .size(100%,100%);
+    overflow: hidden;
+    z-index: 10000;
+    opacity: 0;
+    z-index: -1;
+    h1 {
+        position: absolute;
+        top: 60px;
+        left: 315px;
+        color: @dark-pink-txt;
+        font-size: 133px;
+        font-family: 'GothamRnd-Bold';
+    }
+    p{
+        background: asset-url("cloud-bg.png") no-repeat center center;
+        .size(68%,auto);
+        background-size: 100% 100%;
+        position: absolute;
+        top: 200px;
+        left: 220px;
+        font-family: 'GothamRnd-Bold';
+        font-size: 60px;
+        line-height: 70px;
+        padding: 8% 5%;
+        color: @white;
+    }
+    .sound {
+        position: absolute;
+        bottom: -90px;
+        left: 500px;
+        display: block;
+        .size(180px,180px);
+        .border-radius(50%);
+        background: @yellow;
+        i{
+            font-size: 70px;
+            color: @white;
+            padding: 58px;
+            &:hover {
+                color: @white;
+                cursor: pointer;
+            }
+        }
+    }
+}
+.close-popup {
+    position: absolute;
+    top: 0;
+    left: 0;
+    .size(70px,70px);
+    .border-radius(50%);
+    background: @black;
+    margin: 15px 30px;
+    i{
+        font-size: 24px;
+        color: @white;
+        padding: 23px 24px;
+        &:hover {
+            color: @white;
+        }
+    }
+}
