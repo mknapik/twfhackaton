@@ -5,7 +5,7 @@ app.controller('GameDetailsModalCtrl', ['$scope', '$modalInstance', ($scope, $mo
     $modalInstance.dismiss('cancel')
 
   $scope.play = ->
-    # TODO: replace with the logic
+# TODO: replace with the logic
     $modalInstance.dismiss('cancel')
 ])
 

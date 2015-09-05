@@ -2,14 +2,15 @@ var Page1Ctrl, app;
 
 app = angular.module('twf');
 
-Page1Ctrl = function($scope,$timeout, getGame, postGame, $routeParams) {
-  $scope.title = "Hello, page1!";
-  $scope.currentCategory = 0;
+Page1Ctrl = function ($scope, $timeout, getGame, postGame, $routeParams) {
+    $scope.title = "Hello, page1!";
+    $scope.currentCategory = 0;
 
   getGame.get(function(data){
       $scope.description = data.description;
       $scope.categories = data.tile_sets;
       $scope.tiles = data.tile_sets[$scope.currentCategory].tiles;
+      $scope.data = data;
       $timeout(function(){
         DraggModule.makeDraggable();
       });
@@ -31,7 +32,8 @@ Page1Ctrl = function($scope,$timeout, getGame, postGame, $routeParams) {
       TweenMax.to($(".rating-popup"), 0.6, {  css:{zIndex:-1}, ease:Linear.easeNone});
   }
   $scope.playSound = function($event) {
-      $(".task-text").speak();
+      $(event.target).parent().speak();
+        event.stopPropagation();
   }
   $scope.finishGame = function($event) {
       postGame.post(function(data){
@@ -43,6 +45,12 @@ Page1Ctrl = function($scope,$timeout, getGame, postGame, $routeParams) {
   }
   $scope.playAgain = function($event) {
   }
+   $scope.switchCategory = function($event) {
+        var id = $(event.target).attr("id");
+        $scope.currentCategory = id;
+        $scope.tiles = $scope.data.tile_sets[$scope.currentCategory].tiles;
+    };
+
 };
 app.controller('Page1Ctrl', ['$scope', '$timeout', 'getGame', 'postGame', '$routeParams', Page1Ctrl]);
 
