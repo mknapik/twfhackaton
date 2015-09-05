@@ -130,11 +130,42 @@ header {
 }
 
 .game-list {
+    margin: 50px 0;
     .panel-default {
-         background: @tile-bg;
+         background: @tile-bg60;
         .border-radius(30px);
+        border: 5px solid @game-border;
     }
     .panel-footer {
-        
+        background: none;
+        font-family: 'GothamRnd-Bold';
+        color: @white;
+        font-size: 22px;
+        border: none;
+    }
+    &.owl-theme .owl-controls .owl-buttons div {
+        background: @green;
+        color: @white;
+        padding: 5px 21px;
+        font-size: 27px;
+    }
+}
+
+.finish-game {
+    position: absolute;
+    bottom: 30px;
+    right: 30px;
+    display: block;
+    padding: 30px 40px;
+    .size(140px,140px);
+    background: @green;
+    .border-radius(50%);
+    i{
+        font-size: 40px;
+        color: @white;
+        padding: 23px 12px;
+        &:hover {
+            color: @white;
+        }
     }
 }
