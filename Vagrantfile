@@ -42,6 +42,7 @@ Vagrant.configure(2) do |config|
     apt-get install --yes build-essential libtool autoconf pkg-config libxml2-dev
 
     ruby-switch --set ruby2.2
+    apt-get install imagemagick
     gem install bundler
 
     cd /vagrant
