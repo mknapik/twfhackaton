@@ -8,58 +8,68 @@
 
 require 'open-uri'
 
-GameType.where(id: 1, name: 'podzbiór').first_or_create! do |type|
-  type.description = 'Wybieranie podzbioru obrazków wg tematu'
+def initialize_game_types
+  GameType.where(id: 1, name: 'podzbiór').first_or_create! do |type|
+    type.description = 'Wybieranie podzbioru obrazków wg tematu'
+  end
+
+  GameType.where(id: 2, name: 'sekwencja').first_or_create! do |type|
+    type.description = 'Wybieranie podzbioru obrazków wg tematu'
+  end
+
+  GameType.where(id: 3, name: 'klasyfikacja').first_or_create! do |type|
+    type.description = 'Dopasowanie obrazków w grupy'
+  end
 end
 
-GameType.where(id: 2, name: 'sekwencja').first_or_create! do |type|
-  type.description = 'Wybieranie podzbioru obrazków wg tematu'
+
+def create_tile(name, image)
+  Tile.where(name: name).first_or_create! do |tile|
+    tile.image = open("images/#{image}")
+  end
 end
 
-GameType.where(id: 3, name: 'klasyfikacja').first_or_create! do |type|
-  type.description = 'Dopasowanie obrazków w grupy'
+def create_subset_game(name, description)
+  Game.where(name: name, game_type_id: 1).first_or_create! do |game|
+    game.description = description
+  end
 end
 
-game = Game.where(name: 'Śniadanie', game_type_id: 1).first_or_create! do |game|
-  game.description = 'Wybierz produkty na śniadanie'
+def create_category(name, game, tiles)
+  TileSet.where(name: name, game: game).first_or_create! do |set|
+    set.tiles << tiles
+    set.image = open('http://lorempixel.com/200/200/food/')
+  end
 end
 
-bread = Tile.where(name: 'chleb').first_or_create! do |tile|
-  tile.image = open('http://lorempixel.com/200/200/food/10/')
-end
-b = Tile.where(name: 'bułka').first_or_create! do |tile|
-  tile.image = open('http://lorempixel.com/200/200/food/7/')
-end
-cheese = Tile.where(name: 'ser').first_or_create! do |tile|
-  tile.image = open('http://lorempixel.com/200/200/food/3/')
-end
-yogurt = Tile.where(name: 'jogurt').first_or_create! do |tile|
-  tile.image = open('http://lorempixel.com/200/200/food/')
+def create_solution(tile, game, set)
+  Solution.where(tile_id: tile.id, game_id: game.id).first_or_create! do |s|
+    s.set = set
+  end
 end
 
-TileSet.where(name: 'Nabiał', game: Game.find_by!(name: 'Śniadanie')).first_or_create! do |set|
-  set.tiles << [Tile.find_by!(name: 'ser'), Tile.find_by!(name: 'jogurt')]
-  set.image = open('http://lorempixel.com/200/200/food/')
-end
+initialize_game_types
 
-TileSet.where(name: 'Pieczywo', game: Game.find_by!(name: 'Śniadanie')).first_or_create! do |set|
-  set.tiles << [Tile.find_by!(name: 'bułka'), Tile.find_by!(name: 'chleb')]
-  set.image = open('http://lorempixel.com/200/200/food/')
-end
+# TWorzenie gry śniadanie
+sniadanie = create_subset_game('Śniadanie', 'Wybierz produkty na śniadanie')
 
-Solution.where(tile_id: bread.id, game_id: game.id).first_or_create! do |s|
-  s.set = 1
-end
+## Dodawanie obrazkow
+chleb = create_tile('chleb', 'chleb.png')
+bulka = create_tile('bulka', 'bulka.png')
+jogurt = create_tile('jogurt', 'jogurt.png')
+ser = create_tile('ser', 'ser.png')
 
-Solution.where(tile_id: cheese.id, game_id: game.id).first_or_create! do |s|
-  s.set = 2
-end
+## Tworzenie kategorii
+nabial = create_category('Nabiał', sniadanie, [bulka, jogurt])
+pieczywo = create_category('Pieczywo', sniadanie, [chleb, ser])
 
-Solution.where(tile_id: b.id, game_id: game.id).first_or_create! do |s|
-  s.set = 2
-end
+## Tworzenie poprawnych odpowiedzi
 
-Solution.where(tile_id: yogurt.id, game_id: game.id).first_or_create!
+create_solution(chleb, sniadanie, 1)
+create_solution(ser, sniadanie, 2)
+create_solution(bulka, sniadanie, 2)
+create_solution(jogurt, sniadanie, 1)
+
 #
 # if Dir.exists?(Rails.root.join('tmp/education'))
 #
