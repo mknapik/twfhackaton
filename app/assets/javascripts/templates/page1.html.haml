@@ -1,7 +1,7 @@
 %div.popup-wrapper
   %div(ng-include src="'#{asset_path('templates/popup.html')}'")
 %header
-  %a.open-popup(ng-click="openPopup()")
+  %a.open-popup(ng-click="openPopup = !openPopup" my-open="openPopup")
     %i.fa.fa-bars
   %ul
     %li(ng-repeat="category in categories" ng-class="currentCategory ==  $index ? 'active' : ''" )

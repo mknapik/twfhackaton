@@ -3,7 +3,9 @@ var app = angular.module('twf');
 app.controller('Page1Ctrl', ['$scope', '$timeout', 'getGame', 'postGame', '$routeParams','$location', function ($scope, $timeout, getGame, postGame, $routeParams, $location) {
     $scope.currentCategory = 0;
     $scope.gameId = $routeParams.id;
-
+    $scope.closePopup = true;
+    $scope.openPopup = false;
+    
     $scope.init = function () {
         DraggModule.reset();
 
@@ -20,20 +22,7 @@ app.controller('Page1Ctrl', ['$scope', '$timeout', 'getGame', 'postGame', '$rout
 
     $scope.init();
 
-  $scope.openPopup = function($event) {
-      TweenMax.to($(".task-popup"), 1, {  css:{zIndex:10000}, ease:Linear.easeNone});
-      TweenMax.to($(event.target), 0.2, {  opacity: 0, ease:Linear.easeNone});
-      TweenMax.to($(event.target).parent(), 0.5, {  scale: 40,x:900, y:900,z:-20, ease:Linear.easeNone});
-      TweenMax.to($(".task-popup"), 1, {  opacity: 1, ease:Linear.easeNone});
-      
-      TweenMax.to($(event.target), 1, {  opacity: 1, ease:Linear.easeNone,delay: 2});
-  };
 
-  $scope.closePopup = function($event) {
-      TweenMax.to($(".task-popup"), 0.6, {  opacity: 0, ease:Linear.easeNone});
-      TweenMax.to($(".task-popup"), 0.6, {  css:{zIndex:-1}, ease:Linear.easeNone});
-      TweenMax.to($(".open-popup"), 0.6, {  scale: 1,x:01, y:0,z:0, ease:Linear.easeNone});
-  };
 
   $scope.closePopupRating = function($event) {
       TweenMax.to($(".rating-popup"), 0.6, {  opacity: 0, ease:Linear.easeNone});

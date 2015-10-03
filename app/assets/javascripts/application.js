@@ -14,6 +14,7 @@
 //= require_tree ./controllers
 //= require_tree ./templates
 //= require_tree ./services
+//= require_tree ./directives
 
 //= require 'greensock/TweenLite'
 //= require 'greensock/TweenMax'

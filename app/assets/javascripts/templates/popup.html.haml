@@ -1,5 +1,5 @@
-%div.task-popup
-  %a.close-popup(ng-click="closePopup()")
+%div.task-popup(my-close="closePopup")
+  %a.close-popup(ng-click="closePopup = !closePopup")
     %i.fa.fa-times
   %h1
     Polecenie
