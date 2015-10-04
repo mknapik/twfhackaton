@@ -10,7 +10,8 @@ app.controller('Page1Ctrl', ['$scope', '$timeout', 'getGame', 'postGame', '$rout
         getGame.get(function(data) {
             $scope.description = data.description;
             $scope.categories = data.tile_sets;
-            $scope.tiles = data.tile_sets[$scope.currentCategory].tiles;
+            console.log(data.tile_sets)
+            //$scope.tiles = data.tile_sets[$scope.currentCategory].tiles;
             $scope.data = data;
             $timeout(function(){
                 DraggModule.makeDraggable();
@@ -73,10 +74,10 @@ app.controller('Page1Ctrl', ['$scope', '$timeout', 'getGame', 'postGame', '$rout
    $scope.switchCategory = function($event) {
       var id = $(event.target).attr("id");
       $scope.currentCategory = id;
-      $scope.tiles = $scope.data.tile_sets[$scope.currentCategory].tiles;
-
+      //$scope.tiles = $scope.data.tile_sets[$scope.currentCategory].tiles;
+      //$scope.categories = data.tile_sets;
       $timeout(function() {
-        DraggModule.makeDraggable();
+        DraggModule.loadCurrentConfiguration();
       });
     };
 }]);

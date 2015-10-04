@@ -100,10 +100,18 @@ header {
     }
 }
 
+.categories {
+  position: relative;
+  height: 228px;
+}
+
 .tile-items {
     width: 80%;
+    position: absolute;
     margin: 20px auto;
     text-align: justify;
+    background: #2D2C3E;
+    padding-left: 50px;
     .tile-item {
         .size(160px,160px);
         display: inline-block;
@@ -118,6 +126,10 @@ header {
         }
 
     }
+}
+
+.onTop {
+  z-index: 100000;
 }
 
 .placeholders {

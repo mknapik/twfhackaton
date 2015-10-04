@@ -9,9 +9,11 @@
         {{category.name}}
         %i.fa.fa-volume-up(ng-click="playSound()")
 
-%article.tile-items
-  %section.tile-item(ng-repeat="tile in tiles" data-id="{{tile.id}}")
-    %img(ng-src="{{tile.image_uri}}")
+
+%article.categories
+  %article.tile-items(ng-repeat="category in categories" data-id="{{category.id}}"  ng-class="currentCategory ==  $index ? 'onTop' : ''")
+    %section.tile-item(ng-repeat="tile in category.tiles" data-id="{{tile.id}}")
+      %img(ng-src="{{tile.image_uri}}")
 
 %article.placeholders
   %section.placeholder

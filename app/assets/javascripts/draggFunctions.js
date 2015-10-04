@@ -15,22 +15,25 @@ var DraggModule = function () {
 
     var rollback = false;
 
-    var PlacecholderModel = [];
+    PlacecholderModel = [];
 
     var markActivePlacecholder = function (index) {
+        /*
+         * Makes placeholder highligted when image on it
+         */
 
-        for (var i in placecholdersReferences) {
-            if (placecholdersReferences.hasOwnProperty(i)) {
-                if (i === index) {
-                    placecholdersReferences[i].setAttribute("class", placecholdersReferences[i].getAttribute("class").replace(" active", "") + " active");
-                } else {
-                    placecholdersReferences[i].setAttribute("class", placecholdersReferences[i].getAttribute("class").replace(" active", ""));
-                }
-            }
-        }
+        jQuery(placecholdersReferences).each(function(placeholder_id){
+            if (index == placeholder_id)
+                jQuery(this).addClass('active');
+            else
+                jQuery(this).removeClass('active');
+        });
     };
 
     var getCurrenConfiguration = function () {
+        /*
+         * Returns current configuration for answers
+         */
         var result = [];
         for (var i in PlacecholderModel) {
             if (PlacecholderModel.hasOwnProperty(1) && PlacecholderModel[i].elementIside) {
@@ -83,7 +86,7 @@ var DraggModule = function () {
         if (result) {
             markActivePlacecholder(result.index);
         } else {
-            markActivePlacecholder(false);
+            markActivePlacecholder(-1);
         }
 
         return result;
@@ -93,6 +96,7 @@ var DraggModule = function () {
 
     var makeDraggable = function () {
 
+        console.log('Make draggable');
         placecholdersReferences = document.getElementsByClassName(config.placecholderClass);
 
         for (var i in placecholdersReferences) {
@@ -103,7 +107,6 @@ var DraggModule = function () {
             }
 
         }
-
 
         var DraggableObject = Draggable.create(config.elementSelector, {
             bounds: config.draggableContainer,
@@ -120,7 +123,7 @@ var DraggModule = function () {
                 var isAdded = elenemtIsOnPlaceholder(this.target, true);
                 if (isAdded) {
                     PlacecholderModel[isAdded.index].elementIside = false;
-                    setTimeout(function(){markActivePlacecholder(false);},300);
+                    setTimeout(function(){markActivePlacecholder(-1);},300);
                     rollback = true;
                     delete PlacecholderModel[isAdded.index].id;
 
@@ -169,9 +172,14 @@ var DraggModule = function () {
         }
     };
 
+    var loadCurrentConfiguration = function(){
+        console.log(PlacecholderModel);
+    };
+
     return {
         makeDraggable: makeDraggable,
         getCurrenConfiguration: getCurrenConfiguration,
+        loadCurrentConfiguration: loadCurrentConfiguration,
         reset: reset
     };
 }();
