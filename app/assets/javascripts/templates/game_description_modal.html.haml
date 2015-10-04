@@ -1,9 +1,9 @@
 .game-details-modal
-  .modal-header
+  .popup-header
     %h3.modal-title.title
       {{ selectedGame.title }}
 
-  .modal-body
+  .popup-body
     %img.image-responsive.center-block(ng-src="{{selectedGame.image}}")
 
     .description
@@ -11,9 +11,13 @@
 
     .container-fluid
       .col-sm-6.text-center
-        %a.btn.btn-lg.btn-primary(ng-href="#/games/{{ selectedGame.id }}")
-          Zagraj!
+        %a.btn-standard(ng-href="#/games/{{ selectedGame.id }}")
+          %i.fa.fa-play
+          Zagraj
+          
 
       .col-sm-6.text-center
-        .btn.btn-lg.btn-warning(ng-click="close()")
+        .btn-standard(ng-click="close()")
+          %i.fa.fa-arrow-left
           Wróć
+          

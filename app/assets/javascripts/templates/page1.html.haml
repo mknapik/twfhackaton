@@ -5,7 +5,7 @@
     %i.fa.fa-bars
   %ul
     %li(ng-repeat="category in categories" ng-class="currentCategory ==  $index ? 'active' : ''" )
-      %a.read-text(ng-click="switchCategory()" id="{{$index}}")
+      %a.read-text.btn-standard(ng-click="switchCategory()" id="{{$index}}")
         {{category.name}}
         %i.fa.fa-volume-up(ng-click="playSound()")
 
@@ -14,6 +14,7 @@
     %img(ng-src="{{tile.image_uri}}")
 
 %article.placeholders
+  %section.placeholder
   %section.placeholder
   %section.placeholder
   %section.placeholder

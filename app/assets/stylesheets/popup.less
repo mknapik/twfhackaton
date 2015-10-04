@@ -115,3 +115,40 @@
     }
     
 }
+.modal {
+  border: none;
+
+  .modal-content {
+    .border-radius(30px);
+    border: 5px solid @game-border-light;
+    background: @game-description-bg;
+  }
+
+  .game-details-modal {
+    .description {
+      text-align: center;
+      margin-top: 2em;
+      margin-bottom: 2em;
+    }
+
+  }
+}
+.modal-dialog {
+    width: 50%;
+}
+.game-details-modal {
+    background: @second-bg;
+    .border-radius(30px);
+    padding: 40px 30px;
+    color: @white;
+    font-family: 'GothamRnd-Book';
+    font-size: 2em;
+    .btn-standard {
+        font-size: 1em;
+        padding: 8px 40px;
+        i{
+            margin: 0 2px;
+        }
+    }
+    
+}
