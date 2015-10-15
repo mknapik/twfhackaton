@@ -27,7 +27,10 @@ RSpec.describe GamesController, type: :controller do
     let(:game) { create(:game) }
     let(:expected_response) do
       {
-        'id' => game.id, 'name' => game.name, 'description' => game.description
+        'id' => game.id,
+        'name' => game.name,
+        'description' => game.description,
+        'image' => 'http://lorempixel.com/200/200/abstract'
       }
     end
 

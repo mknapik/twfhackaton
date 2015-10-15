@@ -1,7 +1,14 @@
 FactoryGirl.define do
   factory :game_type do
-    name 'MyString'
+    name 'game type'
     description 'MyText'
-  end
 
+    trait :sequence do
+      name 'sekwencja'
+    end
+
+    trait :subset do
+      name 'podzbiór'
+    end
+  end
 end
