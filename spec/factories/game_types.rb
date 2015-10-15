@@ -4,10 +4,12 @@ FactoryGirl.define do
     description 'MyText'
 
     trait :sequence do
+      id 2
       name 'sekwencja'
     end
 
     trait :subset do
+      id 1
       name 'podzbiór'
     end
   end
