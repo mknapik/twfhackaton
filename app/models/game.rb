@@ -28,8 +28,8 @@ class Game < ActiveRecord::Base
   end
 
   def calculate_rating(max, solution_tile_ids, tile_ids)
-    case game_type.name
-    when 'sekwencja'
+    case game_type_id
+    when 2
       calculate_sequence_rating(max, solution_tile_ids, tile_ids)
     else
       calculate_subset_rating(max, solution_tile_ids, tile_ids)
