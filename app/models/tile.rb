@@ -6,7 +6,7 @@ class Tile < ActiveRecord::Base
                     styles: {medium: '300x300>', thumb: '100x100>'}
 
   validates :name, presence: true
-  validates_attachment :image, presence: true
+  # validates_attachment :image, presence: true
   validates_attachment :image,
-                       content_type: {content_type: /\Aimage\/.*\Z/}
+                       content_type: {content_type: %r{\Aimage\/.*\Z}}
 end

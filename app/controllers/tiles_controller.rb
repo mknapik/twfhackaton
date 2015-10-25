@@ -24,5 +24,4 @@ class TilesController < ApplicationController
   def tile_params
     params.require(:tile).permit(:image, :name)
   end
-
 end

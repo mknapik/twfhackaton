@@ -5,5 +5,4 @@ FactoryGirl.define do
     order 1
     set 1
   end
-
 end
