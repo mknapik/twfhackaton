@@ -141,6 +141,7 @@ var DraggModule = function () {
                         delay: 0.1
                     });
                     this.disable();
+                    $(this.target).children('a').addClass('closable');
                 } else {
                     TweenLite.to(this.target, 0.5, {
                         x: 0,
@@ -184,6 +185,13 @@ var DraggModule = function () {
             draggable.enable();
             placeholderWithTile(tile_id).elementIside = false;
             placeholderWithTile(tile_id).id = null;
+            $(this).children('a').removeClass('closable');
+        });
+
+
+        $('.tile-item').bind('touchstart touchend', function(e) {
+            e.preventDefault();
+            $(this).children('a').toggleClass('hovered');
         });
 
     };

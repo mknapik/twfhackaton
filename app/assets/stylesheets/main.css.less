@@ -107,11 +107,13 @@ header {
 
 .categories {
   position: relative;
-  height: 228px;
+  height: 470px;
 }
 
 .tile-items {
+    position: absolute;
     width: 90%;
+    height: 100%;
     margin: 4% auto;
     text-align: justify;
     background: #2D2C3E;
@@ -129,7 +131,11 @@ header {
             height: 80%;
             margin: 10%;
         }
-        .close {
+        .clear{
+          display: none;
+        }
+        .closable.hovered.clear {
+            display: inline-block;
             position: absolute;
             top: -10px;
             right: -17px;
@@ -225,10 +231,4 @@ header {
             color: @white;
         }
     }
-}
-
-/* TODO add styles */
-a.close {
-  background-color: #3db679;
-  margin-right: 10px;
 }
