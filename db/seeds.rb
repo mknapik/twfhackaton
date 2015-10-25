@@ -122,7 +122,6 @@ sniadanie.ma_poprawna_odpowiedz(kawa)
 sniadanie.ma_poprawna_odpowiedz(noz)
 sniadanie.ma_poprawna_odpowiedz(toster)
 
-
 # Tworzenie gry wycieczka w góry
 gory = Gra.stworz('Wycieczka w góry', 'Co należy zabrać na wycieczkę w góry?', '/mountains/mountains.png')
 
@@ -154,10 +153,11 @@ torebka = dodaj_obrazek('torebka', '/mountains/womanbag.png')
 ryba = dodaj_obrazek('ryba', '/mountains/fish.png')
 lornetka = dodaj_obrazek('lornetka', '/mountains/binoculars.png')
 spodnie = dodaj_obrazek('spodnie', '/mountains/trousers.png')
+banan = dodaj_obrazek('banan', '/breakfast/banan.png')
 
 gory.dodaj_kategorie('Odzież i obuwie' , [buty, sweter, japonki, szpilki, krawat, sukienka,spodnie])
 gory.dodaj_kategorie('Przedmioty' , [plecak, pilka, komputer, telefon,latarka,mikser,rekawica,waga,otwieracz,torebka,lornetka])
-gory.dodaj_kategorie('Żywność' , [tost,wino,fasola,kurczak,winogrono,kukurydza,pizza,ryba])
+gory.dodaj_kategorie('Żywność' , [tost,wino,fasola,kurczak,winogrono,kukurydza,pizza,ryba,banan])
 
 gory.ma_poprawna_odpowiedz(buty)
 gory.ma_poprawna_odpowiedz(sweter)
@@ -165,3 +165,34 @@ gory.ma_poprawna_odpowiedz(spodnie)
 gory.ma_poprawna_odpowiedz(plecak)
 gory.ma_poprawna_odpowiedz(latarka)
 gory.ma_poprawna_odpowiedz(tost)
+gory.ma_poprawna_odpowiedz(banan)
+
+zwierzeta = Gra.stworz('Zwierzęta', 'Wybierz zwięrzęta hodowlane', '/animals/print.png')
+
+## Dodawanie obrazkow
+kaczka = dodaj_obrazek('kaczka','/animals/duck.png')
+zaba = dodaj_obrazek('zaba','/animals/frog.png')
+kon = dodaj_obrazek('kon','/animals/horses.png')
+swinia = dodaj_obrazek('swinia','/animals/pig.png')
+krolik = dodaj_obrazek('krolik','/animals/rabbit.png')
+waz = dodaj_obrazek('waz','/animals/snake.png')
+gwiazda = dodaj_obrazek('gwiazda','/animals/star.png')
+zolw = dodaj_obrazek('zolw','/animals/turtle.png')
+wieloryb = dodaj_obrazek('wieloryb','/animals/whale.png')
+robak = dodaj_obrazek('robak','/animals/worms.png')
+sowa = dodaj_obrazek('sowa','/animals/owl.png')
+kura = dodaj_obrazek('kura','/animals/chicken.png')
+krowa = dodaj_obrazek('krowa','/animals/cow.png')
+slimak = dodaj_obrazek('slimak','/animals/snail.png')
+pajak = dodaj_obrazek('pajak','/animals/spiders.png')
+indyk = dodaj_obrazek('indyk','/animals/turkey.png')
+
+zwierzeta.dodaj_kategorie('Zwierzęta' , [kaczka, zaba, kon, swinia, krolik, waz, gwiazda, zolw, wieloryb, robak, sowa, kura, krowa, slimak, pajak,indyk])
+
+zwierzeta.ma_poprawna_odpowiedz(kaczka)
+zwierzeta.ma_poprawna_odpowiedz(kon)
+zwierzeta.ma_poprawna_odpowiedz(swinia)
+zwierzeta.ma_poprawna_odpowiedz(krolik)
+zwierzeta.ma_poprawna_odpowiedz(kura)
+zwierzeta.ma_poprawna_odpowiedz(krowa)
+zwierzeta.ma_poprawna_odpowiedz(indyk)

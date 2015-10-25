@@ -111,9 +111,8 @@ header {
 }
 
 .tile-items {
-    width: 80%;
-    margin: 3% auto;
-    position: absolute;
+    width: 90%;
+    margin: 4% auto;
     text-align: justify;
     background: #2D2C3E;
     padding-left: 50px;
@@ -123,7 +122,6 @@ header {
         margin: 15px 17px;
         background: @tile-bg;
         .border-radius(30px);
-        overflow: hidden;
         position: relative;
         z-index: 1200;
         img{
@@ -131,7 +129,24 @@ header {
             height: 80%;
             margin: 10%;
         }
-
+        .close {
+            position: absolute;
+            top: -10px;
+            right: -17px;
+            .size(40px,40px);
+            .border-radius(50%);
+            background: @pink;
+            opacity: 1;
+            margin: 0;
+            i{
+                font-size: 20px;
+                color: @white;
+                padding: 9px 12px;
+                &:hover {
+                    color: @white;
+                }
+            }
+        }
     }
 }
 
@@ -173,8 +188,8 @@ header {
     }
     .panel-body {
         img{
-            width: 75%;
-            margin: 4% auto 0 auto;
+            width: 65%;
+            margin: 6% auto 0 auto;
         }
     }
     .panel-footer {

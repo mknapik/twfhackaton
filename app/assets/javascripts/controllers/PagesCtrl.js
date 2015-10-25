@@ -26,8 +26,8 @@ app.controller('Page1Ctrl', ['$scope', '$timeout', 'getGame', 'postGame', '$rout
 
 
   $scope.closePopupRating = function($event) {
-      TweenMax.to($(".rating-popup"), 0.6, {  opacity: 0, ease:Linear.easeNone});
-      TweenMax.to($(".rating-popup"), 0.6, {  css:{zIndex:-1}, ease:Linear.easeNone});
+      TweenMax.to($(".rating-popup"), 0.4, {  opacity: 0, ease:Linear.easeNone});
+      TweenMax.to($(".rating-popup"), 1, {  css:{zIndex:-1}, ease:Linear.easeNone});
   };
 
   $scope.playSound = function($event) {
@@ -45,7 +45,7 @@ app.controller('Page1Ctrl', ['$scope', '$timeout', 'getGame', 'postGame', '$rout
           }
 
         TweenMax.to($(".rating-popup"), 1, {  opacity: 1, ease:Linear.easeNone});
-        TweenMax.to($(".rating-popup"), 1, {  css:{zIndex:10000}, ease:Linear.easeNone,});
+        TweenMax.to($(".rating-popup"), 0.1, {  css:{zIndex:10000}, ease:Linear.easeNone,});
       }, $routeParams.id);
   };
 
