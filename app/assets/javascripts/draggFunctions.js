@@ -108,7 +108,7 @@ var DraggModule = function () {
 
         }
 
-        var DraggableObject = Draggable.create(config.elementSelector, {
+        DraggableObject = Draggable.create(config.elementSelector, {
             bounds: config.draggableContainer,
             edgeResistance: 0.65,
             type: "x,y",
@@ -140,7 +140,7 @@ var DraggModule = function () {
                         y: -currentPlacecholder.y,
                         delay: 0.1
                     });
-
+                    this.disable();
                 } else {
                     TweenLite.to(this.target, 0.5, {
                         x: 0,
@@ -160,6 +160,28 @@ var DraggModule = function () {
                 }
             }
         });
+
+
+        Draggables = {}
+        for (var i in DraggableObject) {
+            draggable = DraggableObject[i]
+            if ('target' in draggable) {
+                id = draggable.target.getAttribute('data-id')
+                Draggables[id] = draggable
+            }
+        };
+
+
+        jQuery('.tile-item').click(function(){
+            draggable = Draggables[$(this).attr('data-id')]
+            TweenLite.to(draggable.target, 0, {
+                x: 0,
+                y: 0,
+                delay: 0
+            });
+            draggable.enable();
+        });
+
     };
 
     var reset = function () {
