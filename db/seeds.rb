@@ -22,7 +22,6 @@ def initialize_game_types
   end
 end
 
-
 def dodaj_obrazek(name, image)
   Tile.where(name: name).first_or_create! do |tile|
     tile.image = open("images/#{image}")
@@ -69,7 +68,7 @@ end
 initialize_game_types
 
 # TWorzenie gry śniadanie
-sniadanie = Gra.stworz('Śniadanie', 'Wybierz rzeczy i produkty związane ze śniadaniem?', 'breakfast/breakfast.jpg')
+sniadanie = Gra.stworz('Śniadanie', 'Wybierz rzeczy i produkty związane ze śniadaniem?', 'breakfast/spoon.png')
 
 ## Dodawanie obrazkow
 avocado = dodaj_obrazek('avocado', '/breakfast/avocado.png')
@@ -125,7 +124,7 @@ sniadanie.ma_poprawna_odpowiedz(toster)
 
 
 # Tworzenie gry wycieczka w góry
-gory = Gra.stworz('Wycieczka w góry', 'Co należy zabrać na wycieczkę w góry?', '/mountains/mountains.jpeg')
+gory = Gra.stworz('Wycieczka w góry', 'Co należy zabrać na wycieczkę w góry?', '/mountains/mountains.png')
 
 ## Dodawanie obrazkow
 buty = dodaj_obrazek('buty','/mountains/shoes.png')
@@ -152,7 +151,7 @@ winogrono = dodaj_obrazek('winogrono', '/breakfast/grape.png')
 kukurydza = dodaj_obrazek('kukurydza', '/breakfast/corn.png')
 pizza = dodaj_obrazek('pizza', '/breakfast/pizza.png')
 torebka = dodaj_obrazek('torebka', '/mountains/womanbag.png')
-ryba = dodaj_obrazek('ryba', '/mountains/ryba.png')
+ryba = dodaj_obrazek('ryba', '/mountains/fish.png')
 lornetka = dodaj_obrazek('lornetka', '/mountains/binoculars.png')
 spodnie = dodaj_obrazek('spodnie', '/mountains/trousers.png')
 
