@@ -21,11 +21,15 @@ ActiveRecord::Schema.define(version: 20150905082406) do
   end
 
   create_table "games", force: :cascade do |t|
-    t.string   "name",         null: false
+    t.string   "name",               null: false
     t.text     "description"
-    t.integer  "game_type_id", null: false
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.integer  "game_type_id",       null: false
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
   end
 
   create_table "solutions", force: :cascade do |t|

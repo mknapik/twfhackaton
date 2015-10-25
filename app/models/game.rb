@@ -3,8 +3,13 @@ class Game < ActiveRecord::Base
   has_many :solutions
   has_many :tile_sets
   has_many :tiles, through: :solutions
-
   validates :name, :game_type, presence: true
+
+  has_attached_file :image,
+                    styles: {medium: '500x500>', thumb: '100x100>'}
+
+  validates_attachment :image,
+                       content_type: {content_type: %r{\Aimage\/.*\Z}}
 
   RATINGS = (1..5)
 

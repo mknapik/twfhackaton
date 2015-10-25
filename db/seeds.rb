@@ -29,9 +29,10 @@ def dodaj_obrazek(name, image)
   end
 end
 
-def stworz_gre_typu_podzbior(name, description)
+def stworz_gre_typu_podzbior(name, description, image)
   Game.where(name: name, game_type_id: 1).first_or_create! do |game|
     game.description = description
+    game.image = open("images/#{image}")
   end
 end
 
@@ -48,12 +49,12 @@ end
 
 class Gra
 
-  def self.stworz(name, description)
-    Gra.new(name, description)
+  def self.stworz(name, description, image)
+    Gra.new(name, description, image)
   end
 
-  def initialize(name , description)
-    @gra = stworz_gre_typu_podzbior(name, description)
+  def initialize(name , description, image)
+    @gra = stworz_gre_typu_podzbior(name, description, image)
   end
 
   def ma_poprawna_odpowiedz(tile)
@@ -68,7 +69,7 @@ end
 initialize_game_types
 
 # TWorzenie gry śniadanie
-sniadanie = Gra.stworz('Śniadanie', 'Wybierz rzeczy i produkty związane ze śniadaniem?')
+sniadanie = Gra.stworz('Śniadanie', 'Wybierz rzeczy i produkty związane ze śniadaniem?', 'breakfast/breakfast.jpg')
 
 ## Dodawanie obrazkow
 avocado = dodaj_obrazek('avocado', '/breakfast/avocado.png')
@@ -124,7 +125,7 @@ sniadanie.ma_poprawna_odpowiedz(toster)
 
 
 # Tworzenie gry wycieczka w góry
-gory = Gra.stworz('Wycieczka w góry', 'Co należy zabrać na wycieczkę w góry?')
+gory = Gra.stworz('Wycieczka w góry', 'Co należy zabrać na wycieczkę w góry?', '/mountains/mountains.jpeg')
 
 ## Dodawanie obrazkow
 buty = dodaj_obrazek('buty','/mountains/shoes.png')
