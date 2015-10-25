@@ -13,7 +13,7 @@
 %article.categories
   %article.tile-items(ng-repeat="category in categories" data-id="{{category.id}}"  ng-class="currentCategory ==  $index ? 'onTop' : ''")
     %section.tile-item(ng-repeat="tile in category.tiles" data-id="{{tile.id}}")
-      %a.clear.hidden
+      %a.clear
         %i.fa.fa-trash-o
       %img(ng-src="{{tile.image_uri}}")
 
