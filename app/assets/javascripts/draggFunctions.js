@@ -173,15 +173,26 @@ var DraggModule = function () {
 
 
         jQuery('.tile-item').click(function(){
-            draggable = Draggables[$(this).attr('data-id')]
+            var tile_id = $(this).attr('data-id')
+            var draggable = Draggables[tile_id]
+            console.log(elenemtIsOnPlaceholder(draggable.target));
             TweenLite.to(draggable.target, 0, {
                 x: 0,
                 y: 0,
                 delay: 0
             });
             draggable.enable();
+            placeholderWithTile(tile_id).elementIside = false;
+            placeholderWithTile(tile_id).id = null;
         });
 
+    };
+
+    var placeholderWithTile = function (tile_id) {
+        for (var i in PlacecholderModel)
+            if (PlacecholderModel[i].id == tile_id)
+                return PlacecholderModel[i]
+        return false
     };
 
     var reset = function () {
