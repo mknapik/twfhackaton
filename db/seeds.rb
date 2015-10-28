@@ -256,7 +256,7 @@ kapielowki = dodaj_obrazek('kąpielówki','/swimming/swimmer.png')
 szampon = dodaj_obrazek('szampon','/swimming/shampoo.png')
 pletwy = dodaj_obrazek('płetwy','/swimming/dive.png')
 
-plywanie.dodaj_kategorie('Przedmioty', [czepek,rower,koszulka,lyzwy,suszarka,klapki,buty,strojkapielowy,rower,płetwy,komputer,szampon,szpilki,krawat,noz])
+plywanie.dodaj_kategorie('Przedmioty',[czepek,rower,koszulka,lyzwy,suszarka,lornetka,klapki,buty,telefon,strojkapielowy,latarka,płetwy,komputer,szampon,szpilki,krawat,noz,lyzwy,koszulka,otwieracz])
 
 plywanie.ma_poprawna_odpowiedz(czepek)
 plywanie.ma_poprawna_odpowiedz(suszarka)
