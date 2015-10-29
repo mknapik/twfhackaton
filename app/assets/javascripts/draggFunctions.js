@@ -96,7 +96,6 @@ var DraggModule = function () {
 
     var makeDraggable = function () {
 
-        console.log('Make draggable');
         placecholdersReferences = document.getElementsByClassName(config.placecholderClass);
 
         for (var i in placecholdersReferences) {
@@ -174,18 +173,7 @@ var DraggModule = function () {
 
 
         jQuery('.tile-item').click(function(){
-            var tile_id = $(this).attr('data-id')
-            var draggable = Draggables[tile_id]
-            console.log(elenemtIsOnPlaceholder(draggable.target));
-            TweenLite.to(draggable.target, 0, {
-                x: 0,
-                y: 0,
-                delay: 0
-            });
-            draggable.enable();
-            placeholderWithTile(tile_id).elementIside = false;
-            placeholderWithTile(tile_id).id = null;
-            $(this).children('a').removeClass('closable');
+            placeBackTile($(this));
         });
 
 
@@ -194,6 +182,26 @@ var DraggModule = function () {
             $(this).children('a').toggleClass('hovered');
         });
 
+        $('.tile-item .clear').bind('touchend', function(e) {
+            e.preventDefault();
+            placeBackTile($(this).parent());
+        });
+
+
+    };
+
+    var placeBackTile = function (tile) {
+        var tile_id = tile.attr('data-id')
+        var draggable = Draggables[tile_id]
+        TweenLite.to(draggable.target, 0, {
+            x: 0,
+            y: 0,
+            delay: 0
+        });
+        draggable.enable();
+        placeholderWithTile(tile_id).elementIside = false;
+        placeholderWithTile(tile_id).id = null;
+        tile.children('a').removeClass('closable');
     };
 
     var placeholderWithTile = function (tile_id) {
@@ -214,7 +222,6 @@ var DraggModule = function () {
     };
 
     var loadCurrentConfiguration = function(){
-        console.log(PlacecholderModel);
     };
 
     return {

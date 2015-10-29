@@ -12,8 +12,6 @@ app.controller('Page1Ctrl', ['$scope', '$timeout', 'getGame', 'postGame', '$rout
         getGame.get(function(data) {
             $scope.description = data.description;
             $scope.categories = data.tile_sets;
-            console.log(data.tile_sets)
-            //$scope.tiles = data.tile_sets[$scope.currentCategory].tiles;
             $scope.data = data;
             $timeout(function(){
                 DraggModule.makeDraggable();
