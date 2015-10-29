@@ -177,7 +177,7 @@ var DraggModule = function () {
         });
 
 
-        $('.tile-item').bind('touchstart', function(e) {
+        $('.tile-item').bind('touchstart touchend', function(e) {
             e.preventDefault();
             $(this).children('a').toggleClass('hovered');
         });
@@ -185,7 +185,6 @@ var DraggModule = function () {
         $('.tile-item').bind('touchmove', function(e) {
             e.preventDefault();
             if ($(this).children('a').hasClass('closable')){
-	      alert('moved');
               placeBackTile($(this));
 	    }
         });
