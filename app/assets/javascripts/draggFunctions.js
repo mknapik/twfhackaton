@@ -177,12 +177,12 @@ var DraggModule = function () {
         });
 
 
-        $('.tile-item').bind('touchstart touchend', function(e) {
+        $('.tile-item').bind('touchstart', function(e) {
             e.preventDefault();
             $(this).children('a').toggleClass('hovered');
         });
 
-        $('.tile-item .clear').bind('touchend', function(e) {
+        $('.tile-item .clear').bind('click', function(e) {
             e.preventDefault();
             placeBackTile($(this).parent());
         });
