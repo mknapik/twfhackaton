@@ -184,9 +184,10 @@ var DraggModule = function () {
 
         $('.tile-item').bind('touchmove', function(e) {
             e.preventDefault();
-	    alert('moved');
-            if ($(this).children('a').hasClass('closable'))
+            if ($(this).children('a').hasClass('closable')){
+	      alert('moved');
               placeBackTile($(this));
+	    }
         });
 
 
