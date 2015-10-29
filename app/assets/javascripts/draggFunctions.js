@@ -182,9 +182,10 @@ var DraggModule = function () {
             $(this).children('a').toggleClass('hovered');
         });
 
-        $('.tile-item').bind('touchend', function(e) {
+        $('.tile-item').on('swipe', function(e) {
             e.preventDefault();
-            placeBackTile($(this).parent());
+            if ($(this).children('a').hasClass('closable'))
+              placeBackTile($(this));
         });
 
 
